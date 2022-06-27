@@ -1,0 +1,2830 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+    <b:include data='blog' name='all-head-content'/>
+<title>
+		<b:if cond='data:blog.pageType == &quot;index&quot;'>
+			<data:blog.pageTitle/>
+		<b:else/>
+			<b:if cond='data:blog.pageType != &quot;error_page&quot;'>
+				<data:blog.pageName/> - <data:blog.title/>
+			<b:else/>
+				ERROR 404 - <data:blog.title/> 
+			</b:if>
+		</b:if>
+    </title>
+    <!-- Description and Keywords (start) -->
+    <b:if cond='data:blog.pageType == &quot;index&quot;'>
+    <meta content='YOUR DESCRIPTION HERE' name='description'/>
+    </b:if>
+    <meta content='YOUR KEYWORDS HERE' name='keywords'/>
+    <!-- Description and Keywords (end) -->
+    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <meta expr:content='data:blog.pageName' property='og:title'/>
+        <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+        <meta content='article' property='og:type'/>
+    </b:if>
+    <b:if cond='data:blog.postImageUrl'>
+        <meta expr:content='data:blog.postImageUrl' property='og:image'/>
+    <b:else/>
+    <b:if cond='data:blog.postImageThumbnailUrl'>
+        <meta expr:content='data:blog.postImageThumbnailUrl' property='og:image'/>
+    </b:if></b:if>
+    <b:if cond='data:blog.metaDescription != &quot;&quot;'>
+        <meta expr:content='data:blog.metaDescription' name='og:description'/>
+    </b:if>
+    <meta expr:content='data:blog.title' property='og:site_name'/>
+    <meta expr:content='data:blog.homepageUrl' name='twitter:domain'/>
+    <meta expr:content='data:blog.pageName' name='twitter:title'/>
+    <b:if cond='data:blog.postImageUrl'>
+      <meta content='summary_large_image' name='twitter:card'/>
+      <meta expr:content='data:blog.postImageUrl' name='twitter:image'/>
+    <b:else/>
+      <meta content='summary' name='twitter:card'/>
+      <b:if cond='data:blog.postImageThumbnailUrl'>
+        <meta expr:content='data:blog.postImageThumbnailUrl' name='twitter:image'/> 
+      </b:if>
+    </b:if>
+    <meta expr:content='data:blog.pageName' name='twitter:title'/>
+    <b:if cond='data:blog.metaDescription'>
+      <meta expr:content='data:blog.metaDescription' name='twitter:description'/>
+    </b:if>
+    <!-- Social Media meta tag need customer customization -->
+    <meta content='Facebook App ID here' property='fb:app_id'/> 
+    <meta content='Facebook Admin ID here' property='fb:admins'/> 
+    <meta content='@username' name='twitter:site'/>
+    <meta content='@username' name='twitter:creator'/>   
+ <script type='application/ld+json'>{&quot;@context&quot;:&quot;http://schema.org&quot;,&quot;@type&quot;:&quot;WebSite&quot;,&quot;name&quot;:&quot;<data:view.title.escaped/>&quot;,&quot;url&quot;:&quot;<data:view.url.canonical/>&quot;,&quot;potentialAction&quot;:{&quot;@type&quot;:&quot;SearchAction&quot;,&quot;target&quot;:&quot;<data:view.url.canonical/>search?q={search_term_string}&quot;,&quot;query-input&quot;:&quot;required name=search_term_string&quot;}}</script>
+<b:include data='blog' name='all-head-content'/>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'/>
+<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'/>
+<link href='http://fonts.googleapis.com/css?family=Kreon' rel='stylesheet' type='text/css'/>
+<link href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'/>
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'/>
+<b:skin><![CDATA[/*
+-----------------------------------------------
+Blogger Template Style
+Name:        Boutique
+Author :     http://www.soratemplates.com
+License:     Free Version
+Version:     2.0
+----------------------------------------------- */
+body#layout #recent-products,body#layout #special-offers,body#layout #search-form,body#layout #top-menu,body#layout #menu-content,body#layout #top-area,.item-price,#popular h2,#navbar,.date-header,.feed-links,.post-location,.post-icons{display: none !important;}
+body#layout {
+width:800px;
+}
+body#layout .container {
+    width: auto;
+}
+body#layout #left-area {
+    width: 60%;
+    float: left;
+}
+body#layout #sidebar-wrapper {
+    width: 40%;
+    float: right;
+}
+
+body#layout .footer-widget {
+    width: 19.7%;
+    float: left;
+}
+.navbar, .Attribution, .quickedit, item-control, .home-link {
+display:none!important;
+}
+.section, .widget, .widget-content, .widget ul, .widget li, body, h1, h2, h3, h4, h5, ul, li, a, p, span, img, dd {
+    border: medium none;
+    list-style: none outside none;
+    margin: 0;
+    outline: medium none;
+    padding: 0;
+    text-decoration: none;
+}
+body#layout #main-products, body#layout #special-items {
+    padding: 0;
+}
+.post-share-buttons {
+    margin: 20px 0 0;
+}
+/* ######## Social Sharing Widget By Sorabloggingtips.com ######################### */
+.share-box {
+position: relative;
+padding: 10px 0;
+}
+.share-title {
+border-bottom: 2px solid #777;
+color: #010101;
+display: inline-block;
+padding-bottom: 7px;
+font-size: 15px;
+font-weight: 500;
+position: relative;
+top: 2px;
+}
+.share-art {
+float: right;
+padding: 0;
+padding-top: 0;
+font-size: 13px;
+font-weight: 400;
+text-transform: capitalize;
+}
+.share-art a {
+color: #fff;
+padding: 3px 8px;
+margin-left: 4px;
+border-radius: 2px;
+display: inline-block;
+margin-right: 0;
+background: #010101;
+}
+.share-art a span {
+    display: none;
+}
+.share-art a:hover{color:#fff}
+.share-art .fac-art{background:#3b5998}
+.share-art .fac-art:hover{background:rgba(49,77,145,0.7)}
+.share-art .twi-art{background:#00acee}
+.share-art .twi-art:hover{background:rgba(7,190,237,0.7)}
+.share-art .pin-art{background:#CA2127}
+.share-art .pin-art:hover{background:rgba(202,33,39,0.7)}
+.share-art .lin-art{background:#0077B5}
+.share-art .lin-art:hover{background:rgba(0,119,181,0.7)}
+.share-art .wat-art{background:#25d266;display:none;}
+.share-art .wat-art.whatsapp-desktop{background:#25d266;display:inline-block;}
+.share-art .wat-art:hover{background:rgba(37, 210, 102, 0.73)}
+@media only screen and (max-width: 768px) {
+.share-art .wat-art{display:inline-block;}
+.share-art .wat-art.whatsapp-desktop{display:none;}
+}
+body {
+    background-color: #FFFFFF;
+    font-family: 'Droid Sans',Arial,Verdana,sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+}
+ .CSS_LIGHTBOX{z-index:999999!important}.CSS_LIGHTBOX_ATTRIBUTION_INDEX_CONTAINER .CSS_HCONT_CHILDREN_HOLDER > .CSS_LAYOUT_COMPONENT.CSS_HCONT_CHILD:first-child > .CSS_LAYOUT_COMPONENT{opacity:0}
+
+a {
+    color: #434343;
+}
+a:hover {
+    color: #7CB7B5;
+}
+.clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+}
+p {
+    line-height: 24px;
+    padding-bottom: 10px;
+}
+#color-stripes {
+    background: url("https://lh4.googleusercontent.com/-r9O2AaSvgKw/UjFfR2XrzYI/AAAAAAAACz0/XkShhR2JVQs/s588/color-stripes.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #FFFFFF;
+    height: 4px;
+}
+.container {
+    margin: 0 auto;
+    position: relative;
+    text-align: left;
+    width: 960px;
+}
+#header-wrapper {
+    background: url("https://lh4.googleusercontent.com/-20ri5ppk_CY/UjFfWBgSEGI/AAAAAAAAC1A/-Nil_KOF1LE/s29/header-bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    padding-top: 38px;
+}
+#header {
+    float: left;
+    margin-bottom: 18px;
+}
+#header, #header a {
+    color: #848968;
+}
+#header h1 {
+    font-family: 'Cookie',cursive;
+    font-size: 43px;
+    font-weight: normal;
+    line-height: 43px;
+}
+#header img {
+    max-height: 51px;
+    width: auto;
+}
+#header .descriptionwrapper {
+    background: url("https://lh3.googleusercontent.com/-6F_m49C5AkM/UjFfd9bKxlI/AAAAAAAAC3s/qJIETtYBQqg/s28/slogan-bg.png") no-repeat scroll 0 7px rgba(0, 0, 0, 0);
+    color: #000000;
+    font-family: Georgia,serif;
+    font-size: 12px;
+    font-style: italic;
+    margin-left: 15px;
+    padding-left: 13px;
+    padding-top: 9px;
+}
+.titlewrapper, .descriptionwrapper {
+    display: inline-block;
+}
+#search-form {
+    background: url("https://lh5.googleusercontent.com/--rw94CqkMfU/UjFfbAIn44I/AAAAAAAAC24/MMVTFyh4AAk/s127/search-bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    float: right;
+    height: 26px;
+    margin-top: 7px;
+    width: 127px;
+}
+#search-form #searchinput {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    color: #B5B5B5;
+    float: left;
+    font-family: Georgia,serif;
+    font-size: 11px;
+    font-style: italic;
+    margin: 4px 7px 0 4px;
+    padding-left: 9px;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    width: 84px;
+}
+#search-form #searchsubmit {
+    float: right;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+.selectnav {
+display: none;
+}
+ul#top-menu {
+    float: right;
+    padding-right: 17px;
+}
+ul#secondary-menu {
+    padding-left: 18px;
+    width: 960px;
+}
+#top-area {
+}
+#top-area-bg {
+    background: url("https://lh4.googleusercontent.com/-lqX67YeJIf8/UjFfeEGy9hI/AAAAAAAAC34/OSUEnk_J8Sg/s9/top-area-bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+}
+ul#top-menu li {
+    padding-right: 2px;
+}
+ul#top-menu a {
+    background: url("https://lh3.googleusercontent.com/-yD2p2SaqIdA/UjFfel5To4I/AAAAAAAAC38/UwYYiXSzjVs/s43/top-menu-bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: #434343;
+    font-family: 'Droid Sans',Arial,Verdana,sans-serif;
+    padding: 11px 9px 10px;
+    text-decoration: none;
+}
+ul#top-menu > li.sf-ul.sfHover > a {
+    border: 1px solid #EAEAEA;
+    box-shadow: -1px 2px 5px 0 rgba(0, 0, 0, 0.1);
+}
+ul#top-menu li a:hover {
+    color: #111111;
+}
+ul#top-menu > li.current_page_item > a {
+    color: #B5B5B5 !important;
+    font-family: Georgia,serif;
+    font-style: italic;
+}
+ul#top-menu li ul {
+    background: url("https://lh6.googleusercontent.com/-6pC9-hAv570/UjFfYBkkS6I/AAAAAAAAC10/321xaaAh3As/s208/menu-dropdown-bg.png") repeat-y scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #EAEAEA;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+    display: none;
+    padding: 10px 0;
+    top: 41px !important;
+    width: 208px !important;
+}
+ul#top-menu li ul li {
+    padding: 8px 0 8px 34px;
+}
+ul#top-menu li ul a {
+    text-shadow: 1px 1px 0 #FFFFFF;
+    width: 160px;
+}
+ul#top-menu li ul a, ul#top-menu li ul a:hover {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    border-radius: 0 0 0 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+}
+ul#top-menu li ul a:hover {
+    color: #7CB7B5;
+}
+ul#top-menu li:hover ul ul, ul#top-menu li.sfHover ul ul {
+    border-radius: 10px 10px 10px 10px;
+    left: 209px !important;
+    top: -10px !important;
+}
+#menu-content {
+    position: relative;
+}
+#menu-shadow {
+    background: url("https://lh5.googleusercontent.com/-bjexbvUHtoo/UjFfcQpyUHI/AAAAAAAAC3I/1r85d151bPE/s960/secondary-menu-bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 4px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 960px;
+    z-index: 30;
+}
+ul#secondary-menu li {
+    font-family: 'Kreon',Arial,sans-serif;
+}
+ul#secondary-menu a {
+    color: #434343;
+    font-size: 16px;
+    padding: 18px 9px 15px;
+    text-decoration: none;
+}
+ul#secondary-menu a:hover {
+    color: #7CB7B5;
+}
+ul#secondary-menu li {
+    border-left: 1px solid rgba(0, 0, 0, 0);
+    border-right: 1px solid rgba(0, 0, 0, 0);
+}
+ul#secondary-menu li ul li {
+    border: medium none;
+}
+ul#secondary-menu > li.sf-ul.sfHover {
+    background: url("https://lh3.googleusercontent.com/-KunromAdnO0/UjFfcc445cI/AAAAAAAAC3M/GTb9rJFjQ2A/s51/secondary-active-bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    border-left: 1px solid #D3D3D3;
+    border-right: 1px solid #D3D3D3;
+}
+ul#secondary-menu > li.sf-ul.sfHover > a {
+    background: url("https://lh5.googleusercontent.com/-DuEkrY6yRcw/UjFfcgaZReI/AAAAAAAAC3Y/PaoVKW4gXCI/s53/secondary-shadow.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+ul#secondary-menu > li.current_page_item > a {
+    color: #7CB7B5 !important;
+    font-family: Georgia,serif;
+    font-size: 15px;
+    font-style: italic;
+}
+ul#secondary-menu li ul {
+    background: url("https://lh5.googleusercontent.com/-miJIUV7qC7M/UjFfRzEEtfI/AAAAAAAACzw/flLq1zHslOs/s339/bottom-dropdown-bg.png") no-repeat scroll 0 0 #FCFCFC;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+    display: none;
+    padding: 7px 0 10px;
+    top: 53px !important;
+    width: 360px !important;
+}
+ul#secondary-menu ul li {
+    float: left;
+    margin: 0 !important;
+    padding: 8px 0 8px 30px !important;
+    width: 149px;
+}
+ul#secondary-menu ul li a {
+    padding: 0 !important;
+}
+ul#secondary-menu li:hover ul ul, ul#secondary-menu li.sfHover ul ul {
+    border-radius: 8px 8px 8px 8px;
+    left: 180px !important;
+    top: -8px !important;
+}
+ul#secondary-menu ul li.even-item {
+    border-left: 1px solid #F1F1F1;
+}
+.nav ul {
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -999em;
+    z-index: 10;
+}
+.nav li {
+    float: left;
+    position: relative;
+}
+.nav a {
+    display: block;
+    float: left;
+}
+.nav li:hover ul, ul.nav li.sfHover ul {
+    left: 0;
+    top: 50px;
+}
+.nav li:hover li ul, .nav li.sfHover li ul {
+    top: -999em;
+}
+.nav li li:hover ul, ul.nav li li.sfHover ul {
+    left: 192px;
+    top: 0;
+}
+.nav li:hover ul, .nav li li:hover ul {
+    top: -999em;
+}
+.nav li li {
+    display: block;
+    float: left;
+    height: auto !important;
+    padding: 0;
+}
+.nav li ul {
+    width: 191px;
+    z-index: 1000;
+}
+.nav li li a:link, .nav li li a:visited {
+    display: block;
+    float: left;
+    height: auto;
+}
+.nav li:hover {
+    visibility: inherit;
+}
+#top-area {
+    background: url("https://lh3.googleusercontent.com/-1MH2svNkafk/UjFfQKMBh1I/AAAAAAAACzM/rxuwW2yPXVo/s8/area-bg.png") repeat scroll 0 0 #8ED0CE;
+}
+#top-area-bg {
+    background: url("https://lh4.googleusercontent.com/-lqX67YeJIf8/UjFfeEGy9hI/AAAAAAAAC34/OSUEnk_J8Sg/s9/top-area-bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+}
+#bottom-area-bg {
+    background: url("https://lh5.googleusercontent.com/-lE6S4nzc8rE/UjFfQ1lYHsI/AAAAAAAACzc/AMW7Xh-0akE/s9/bottom-area-bg.png") repeat-x scroll left bottom rgba(0, 0, 0, 0);
+}
+#category-inner {
+    font-family: 'Kreon',Arial,sans-serif;
+    padding: 30px 0 20px;
+}
+h1.category-title {
+    color: #577A79;
+    font-size: 33px;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4);
+}
+#category-inner p.description, #category-inner p.meta-info {
+    color: #FFFFFF;
+    font-size: 18px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+#category-inner p.meta-info a {
+    color: #FFFFFF;
+}
+#comments h4, h3.offer-title, h3#comments, h3#reply-title {
+    background: url("https://lh5.googleusercontent.com/-FdkcPVrlS8E/UjFfYzCsrdI/AAAAAAAAC2I/ZIwQ9u2IShI/s350/offer-title-bg.png") no-repeat scroll right bottom rgba(0, 0, 0, 0);
+    color: #434343;
+    display: block;
+    font-size: 14px;
+    height: 43px;
+    line-height: 41px;
+    padding-bottom: 0;
+    padding-right: 6px;
+    position: absolute;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    text-transform: uppercase;
+}
+#comments h4 span, h3.offer-title span, h3#comments span, h3#reply-title span {
+    background: url("https://lh5.googleusercontent.com/-FdkcPVrlS8E/UjFfYzCsrdI/AAAAAAAAC2I/ZIwQ9u2IShI/s350/offer-title-bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    height: 43px;
+    padding-left: 20px;
+    padding-right: 16px;
+}
+#special-offers {
+    font-weight: normal;
+    left: 43%;
+    position: absolute;
+    top: -22px;
+}
+#special-items {
+    padding-bottom: 50px;
+    padding-left: 18px;
+    padding-top: 45px;
+}
+.special-item {
+    display: inline-block;
+    margin-left: 5px;
+    position: relative;
+    width: 19%;
+}
+.last {
+    margin-right: 0;
+}
+.special-item .price-tag, #et-slides .price-tag {
+    background: url("https://lh3.googleusercontent.com/-Gbb0VxaBbZA/UjFfaH9hJAI/AAAAAAAAC2o/82kV5oQfvMg/s84/price-tag.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+    font-family: Georgia,serif;
+    font-size: 20px;
+    height: 53px;
+    left: -18px;
+    padding-right: 3px;
+    padding-top: 30px;
+    position: absolute;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    top: -6px;
+    width: 65px;
+}
+#et-slides .price-tag {
+    left: 123px;
+    top: -18px;
+    z-index: 100;
+}
+.special-item a:hover {
+    text-decoration: none;
+}
+.special-item .price-tag span, #et-slides .price-tag span {
+    color: #FFFFFF;
+    font-family: Georgia,serif;
+    font-size: 12px;
+    left: 29px;
+    position: absolute;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    top: -1px;
+}
+.special-item h4.title {
+    font-family: Georgia,serif;
+    font-size: 16px;
+    padding: 12px 0;
+    text-align: center;
+}
+.special-item h4.title a {
+    color: #434343;
+    font-weight: normal;
+    text-decoration: none;
+}
+.special-item .et-links a {
+    color: #838383;
+    font-size: 10px;
+    height: 23px;
+    line-height: 23px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    text-transform: uppercase;
+}
+.special-item .et-links a:hover {
+    color: #4C4B4B;
+}
+.special-item a.add-to-cart {
+    background: url("https://lh5.googleusercontent.com/-dSN0JgB0kBE/UjFfQG5rauI/AAAAAAAACzI/eREGsWfccmI/s79/add-to-cart.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    float: left;
+    width: 79px;
+}
+.special-item a.more-info {
+    background: url("https://lh6.googleusercontent.com/-uCERwNh0aTY/UjFfYC9oWjI/AAAAAAAAC1w/lVqzX4kb8VM/s72/more-info-bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    float: left;
+    width: 72px;
+}
+.special-item a.add-to-cart:hover, .special-item a.more-info:hover {
+    background-position: left bottom;
+}
+.special-item img {
+    display: block;
+    margin: 0 auto;
+}
+#featured {
+    height: 340px;
+}
+#slides {
+    height: 290px;
+}
+.slide {
+    padding: 80px 0 10px 82px;
+}
+.js .slide {
+    display: none;
+}
+.featured-image {
+    float: left;
+    margin-right: 57px;
+    margin-top: -37px;
+    position: relative;
+    width: 380px;
+}
+.featured-description {
+    color: #FFFFFF;
+    float: left;
+    font-size: 14px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    width: 353px;
+}
+.featured-description p {
+    line-height: 21px;
+}
+h2.featured-title {
+    font-family: 'Kreon',Arial,sans-serif;
+    font-size: 33px;
+    padding-bottom: 13px;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4);
+}
+h2.featured-title a {
+    color: #577A79;
+}
+h2.featured-title a:hover {
+    color: #3C5958;
+    text-decoration: none;
+}
+#featured a.readmore {
+    background: url("https://lh6.googleusercontent.com/-JhUipI4KOt0/UjFfY-ihtsI/AAAAAAAAC2A/TwZHHshaTYk/s300/more-info.png") no-repeat scroll right bottom rgba(0, 0, 0, 0);
+    color: #434343;
+    display: block;
+    float: right;
+    font-size: 12px;
+    padding-right: 17px;
+    text-shadow: none;
+}
+#featured a.readmore span {
+    background: url("https://lh6.googleusercontent.com/-JhUipI4KOt0/UjFfY-ihtsI/AAAAAAAAC2A/TwZHHshaTYk/s300/more-info.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 17px;
+}
+#featured a.readmore:hover {
+    color: #111111;
+}
+#featured a#left-arrow, #featured a#right-arrow {
+    display: block;
+    height: 70px;
+    position: absolute;
+    text-indent: -9999px;
+    top: 126px;
+    width: 28px;
+    z-index: 100;
+}
+#featured a#left-arrow {
+    background: url("https://lh3.googleusercontent.com/-LX0InVzqx2U/UjFfWJ3tRuI/AAAAAAAAC1E/pUua40Dri4U/s70/left-arrow.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    left: 0;
+}
+#featured a#right-arrow {
+    background: url("https://lh6.googleusercontent.com/-c5bZ7reUg80/UjFfa_5FTiI/AAAAAAAAC2s/OzEfXfmF8H0/s70/right-arrow.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    right: 0;
+}
+#featured #controllers {
+    text-align: center;
+}
+#featured #controllers a {
+    background: url("https://lh4.googleusercontent.com/-jXGzr9jjqV8/UjFfUmfsoGI/AAAAAAAAC0g/R635jlWphnk/s11/featured-controller.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 11px;
+    margin-right: 4px;
+    text-indent: -9999px;
+    width: 11px;
+}
+#featured #controllers a.activeSlide {
+    background: url("https://lh4.googleusercontent.com/-mLx8TL0Npms/UjFfUlDUGlI/AAAAAAAAC0k/b_EfABn1fLk/s11/featured-controller-active.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.featured-price {
+    background: url("https://lh5.googleusercontent.com/-9kaJEor1LzM/UjFfaP63puI/AAAAAAAAC2Y/xL72QEAoQb4/s283/price-area.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    bottom: -39px;
+    height: 85px;
+    left: 52px;
+    position: absolute;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    width: 283px;
+}
+.featured-price a {
+    color: #FFFFFF;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+.featured-price a:hover {
+    color: #FFEB7D;
+    text-decoration: none;
+}
+.featured-price a.add_cart, .featured-price a.more_info {
+    position: absolute;
+    top: 36px;
+}
+.featured-price a.add_cart {
+    left: 25px;
+}
+.featured-price a.more_info {
+    left: 189px;
+}
+.featured-price span.price, .featured-price span.currency_sign {
+    color: #FFFFFF;
+    display: block;
+    font-family: Georgia,serif;
+    position: absolute;
+    text-align: center;
+}
+.featured-price span.price {
+    font-size: 19px;
+    left: 110px;
+    top: 30px;
+    width: 64px;
+}
+.featured-price span.currency_sign {
+    color: #FFFFFF;
+    font-size: 12px;
+    left: 133px;
+    top: 1px;
+    width: 17px;
+}
+#main-content {
+    background: url("https://lh6.googleusercontent.com/-e_2NnfhJ0hs/UjFfXBtIYEI/AAAAAAAAC1g/ZW3ruUT_i8s/s960/main-content.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    padding-top: 4px;
+}
+#main-content-bg {
+    background: url("https://lh6.googleusercontent.com/-6wKxYuP4d6k/UjFfWaNHxPI/AAAAAAAAC1Q/yU_NhmPC_Cs/s273/main-content-bg.png") repeat-y scroll 692px 0 rgba(0, 0, 0, 0);
+}
+#main-content-bottom-bg {
+    background: url("https://lh5.googleusercontent.com/-y5ZsFLSf8OI/UjFfWzKIEGI/AAAAAAAAC1U/VkFdKFrL8gM/s273/main-content-bottom-bg.png") no-repeat scroll 692px bottom rgba(0, 0, 0, 0);
+}
+#left-area {
+    float: left;
+    position: relative;
+    width: 692px;
+}
+#recent-products {
+    font-weight: normal;
+    left: 40%;
+    position: absolute;
+    top: -22px;
+}
+#main-products {
+    margin-bottom: 12px;
+    padding-top: 43px;
+}
+.main-product blockquote {
+    background: none repeat scroll 0 0 #E6E6E6;
+    border: 1px solid #DCDCDC;
+    color: #666666;
+    font-style: italic;
+    margin: 1.5em;
+    padding: 1em;
+}
+.main-product {
+    padding: 0 40px 20px 0;
+}
+.main-product h1 {
+    font-size: 24px;
+    font-weight: normal;
+    padding-bottom: 14px;
+    padding-left: 2px;
+}
+.main-product img {
+    max-width: 100%;
+}
+.main-product .price-tag {
+    background: url("https://lh5.googleusercontent.com/-iUh6CMntzZg/UjFfaH5LrxI/AAAAAAAAC2c/mgemxQCThvY/s62/price-tag2.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+    font-family: Georgia,serif;
+    font-size: 14px;
+    height: 42px;
+    left: 0;
+    padding-right: 2px;
+    padding-top: 20px;
+    position: absolute;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    top: -6px;
+    width: 49px;
+}
+.main-product a:hover {
+    text-decoration: none;
+}
+.main-product .price-tag span {
+    color: #FFFFFF;
+    font-family: Georgia,serif;
+    font-size: 12px;
+    left: 21px;
+    position: absolute;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    top: -1px;
+}
+.main-product h3 {
+    font-family: Georgia,serif;
+    font-size: 14px;
+    font-weight: normal;
+    padding-bottom: 12px;
+    text-align: center;
+}
+.main-product h3 a {
+    color: #434343;
+    text-decoration: none;
+}
+.boutique_description_border {
+    border: 1px solid #DFDFDF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+    left: 100px;
+    position: absolute;
+    top: 1px;
+    z-index: 40;
+}
+.boutique_description {
+    background: url("https://lh5.googleusercontent.com/-7sg2bvAqINY/UjFfSebySSI/AAAAAAAACz8/YtH1CxSnz9U/s229/description-bg.png") repeat-x scroll left bottom #FFFFFF;
+    border: 1px solid #FFFFFF;
+    padding: 20px 26px;
+    width: 290px;
+}
+.boutique_description h4.description-title {
+    color: #434343;
+    float: left;
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    width: 195px;
+}
+.boutique_description .price {
+    color: #7AB5AF;
+    float: right;
+    font-size: 24px;
+}
+.boutique_description h4.description-title, .boutique_description .price {
+    font-family: Georgia,serif;
+}
+.boutique_description_border, .boutique_description {
+    border-radius: 10px 10px 10px 10px;
+}
+.post img {
+    max-width: 100%;
+}
+.thumb {
+    display: block;
+    height: 96px;
+    width: 113px;
+}
+.post blockquote {
+    font: italic 13px georgia;
+    margin: 1em 20px;
+}
+#sidebar-wrapper {
+    background: url("https://lh6.googleusercontent.com/-VQsYpCo-JKw/UjFfdJkc5yI/AAAAAAAAC3c/_cctlqK71YE/s53/sidebar-bg.png") no-repeat scroll 0 -1px rgba(0, 0, 0, 0);
+    float: left;
+    position: relative;
+    width: 268px;
+}
+.sidebar .widget {
+    background: url("https://lh6.googleusercontent.com/-5Wu6gnYYmeM/UjFffLtgvgI/AAAAAAAAC4E/lSKybXLyVas/s273/widget-bg.png") no-repeat scroll left bottom rgba(0, 0, 0, 0);
+    padding: 23px 25px 30px 0;
+}
+.sidebar h2 {
+    color: #434343;
+    font-family: Georgia,serif;
+    font-size: 16px;
+    font-weight: normal;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+.sidebar .widget-content {
+    background: url("https://lh6.googleusercontent.com/-VQsYpCo-JKw/UjFfdJkc5yI/AAAAAAAAC3c/_cctlqK71YE/s53/sidebar-bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    padding-left: 30px;
+    padding-top: 25px;
+}
+.sidebar ul li {
+    background: url("https://lh6.googleusercontent.com/-jgHWtuSEXjo/UjFfd2S1r8I/AAAAAAAAC3o/mRZTPPVs7wk/s6/sidebar-bullet.png") no-repeat scroll 0 8px rgba(0, 0, 0, 0);
+    display: block;
+    padding-bottom: 8px;
+    padding-left: 14px;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+.sidebar ul li a {
+    color: #626262;
+}
+.sidebar ul li a:hover {
+    color: #111111;
+}
+#footer {
+    background: url("https://lh3.googleusercontent.com/-1MH2svNkafk/UjFfQKMBh1I/AAAAAAAACzM/rxuwW2yPXVo/s8/area-bg.png") repeat scroll 0 0 #8ED0CE;
+}
+#footer-top-bg {
+    background: url("https://lh4.googleusercontent.com/-lqX67YeJIf8/UjFfeEGy9hI/AAAAAAAAC34/OSUEnk_J8Sg/s9/top-area-bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+}
+#footer-bottom-bg {
+    background: url("https://lh5.googleusercontent.com/-lE6S4nzc8rE/UjFfQ1lYHsI/AAAAAAAACzc/AMW7Xh-0akE/s9/bottom-area-bg.png") repeat-x scroll left bottom rgba(0, 0, 0, 0);
+}
+#footer-widgets {
+    padding: 56px 0 50px;
+}
+.footer-widget {
+    float: left;
+    margin-right: 70px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    width: 187px;
+}
+.last {
+    margin-right: 0;
+}
+#footer-logo {
+    margin-bottom: -15px;
+    margin-top: -10px;
+}
+.footer-widget {
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+#footer h2 {
+    color: #577A79;
+    font-family: 'Kreon',Arial,sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    padding-bottom: 15px;
+    padding-left: 0;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+.footer-widget a {
+    color: #FFFFFF;
+}
+.footer-widget a:hover {
+    color: #EEEEEE;
+    text-decoration: none;
+}
+.footer-widget ul {
+    margin-bottom: 8px;
+}
+.footer-widget ul ul {
+    margin-bottom: 0;
+}
+.footer-widget ul li {
+    background: url("https://lh6.googleusercontent.com/-nasJU6qbMiM/UjFfVQ9fDuI/AAAAAAAAC0w/VDtwgWicX4E/s6/footer-bullet.png") no-repeat scroll 0 7px rgba(0, 0, 0, 0);
+    padding: 0 0 7px 12px;
+}
+.footer-widget ul li ul {
+    margin: 0 0 -3px;
+    padding: 5px 0 0 7px;
+}
+#footer-bottom {
+    background: url("https://lh5.googleusercontent.com/-L8YY1n3BzF4/UjFfVQ0iDII/AAAAAAAAC00/UtTvCfSmhT0/s61/footer-bottom-bg.png") repeat-x scroll left bottom rgba(0, 0, 0, 0);
+    padding: 20px 0 17px;
+}
+ul.bottom-nav li {
+    float: left;
+    font-family: 'Kreon',Arial,sans-serif;
+    padding-right: 20px;
+}
+ul.bottom-nav li a {
+    color: #434343;
+    font-size: 16px;
+    text-decoration: none;
+}
+ul.bottom-nav li a:hover {
+    color: #7CB7B5;
+    text-decoration: none;
+}
+ul.bottom-nav li.current_page_item a {
+    color: #7CB7B5 !important;
+    font-family: Georgia,serif;
+    font-size: 15px;
+    font-style: italic;
+}
+#footer-bottom p {
+    color: #434343;
+    padding-bottom: 0;
+    text-align: center;
+}
+#footer-bottom a {
+    color: #7CB7B5;
+}
+#bottom-color-stripes {
+    background: url("https://lh4.googleusercontent.com/-wzGTbfKeV5k/UjFfRJwWvuI/AAAAAAAACzk/KUpM_4QwbZY/s588/bottom-color-stripes.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    border-top: 1px solid #FFFFFF;
+    height: 5px;
+}
+#comments h4 {
+    left: 38%;
+    top: -16px;
+}
+.related-items, #comment-wrap {
+    background: url("https://lh3.googleusercontent.com/-2blfAeBaY_Q/UjFfXqxzohI/AAAAAAAAC1k/qwf7yJ5joTo/s687/main-separator.png") no-repeat scroll 4px 0 rgba(0, 0, 0, 0);
+    padding: 20px 40px 0 0;
+    position: relative;
+}
+#comments .avatar-image-container img {
+    border: 0 none;
+}
+.comment-thread {
+    color: #111111;
+}
+.comment-thread a {
+    color: #777777;
+}
+.comment-thread ol {
+    margin: 0 0 20px;
+}
+.comment-thread .comment-content a, .comments .user a, .comments .comment-thread.inline-thread .user a {
+    color: #7CB7B5;
+}
+.comments .avatar-image-container, .comments .avatar-image-container img {
+    height: 48px;
+    max-height: 48px;
+    max-width: 48px;
+    width: 48px;
+}
+.comments .comment-block, .comments .comments-content .comment-replies, .comments .comment-replybox-single {
+    margin-left: 60px;
+}
+.comments .comment-block, .comments .comment-thread.inline-thread .comment {
+    background: none repeat scroll 0 0 #F9F9F9;
+    border: 1px solid #DDDDDD;
+    padding: 10px;
+}
+.comments .comments-content .comment {
+    line-height: 1em;
+    margin: 15px 0 0;
+    padding: 0;
+    width: 100%;
+}
+.comments .comments-content .icon.blog-author {
+    background-image: url("https://lh4.googleusercontent.com/-ZCMHz2yFFAg/UjEaCQ2dPII/AAAAAAAACyo/rBypn3DZZn0/s36/author.png");
+    height: 36px;
+    margin: 0;
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 36px;
+}
+.comments .comments-content .inline-thread {
+    padding: 0 0 0 20px;
+}
+.comments .comments-content .comment-replies {
+    margin-top: 0;
+}
+.comments .comment-content {
+    line-height: 1.4em;
+    padding: 5px 0;
+}
+.comments .comment-thread.inline-thread {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-left: 1px solid #DDDDDD;
+}
+.comments .comment-thread.inline-thread .comment {
+    width: auto;
+}
+.comments .comment-thread.inline-thread .comment:after {
+    border-top: 1px solid #DDDDDD;
+    content: "";
+    height: 0;
+    left: -20px;
+    position: absolute;
+    top: 10px;
+    width: 10px;
+}
+.comments .comment-thread.inline-thread .comment .comment-block {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    padding: 0;
+}
+.comments .comment-thread.inline-thread .comment-block {
+    margin-left: 48px;
+}
+.comments .comment-thread.inline-thread .user a {
+    font-size: 13px;
+}
+.comments .comment-thread.inline-thread .avatar-image-container, .comments .comment-thread.inline-thread .avatar-image-container img {
+    height: 36px;
+    max-height: 36px;
+    max-width: 36px;
+    width: 36px;
+}
+.comments .continue {
+    border-top: 0 none;
+    width: 100%;
+}
+.comments .continue a {
+    padding: 10px 0;
+    text-align: center;
+}
+.comment .continue {
+    display: none;
+}
+#comment-editor {
+    width: 103% !important;
+}
+.comment-form {
+    max-width: 100%;
+    width: 100%;
+}
+.comments .comments-content .loadmore, .comments .comments-content {
+    margin: 0;
+}
+.thread-expanded .blog-author {
+    right: -12px !important;
+    top: -12px !important;
+}
+#blog-pager-newer-link {
+    float: left;
+}
+#blog-pager-older-link {
+    float: right;
+}
+#blog-pager {
+    clear: both;
+    margin: 0;
+    padding: 12px 60px 40px 0;
+    text-align: center;
+}
+.pagenavi {
+    position: relative;
+    text-align: right;
+}
+.pagenavi a, .pagenavi a:link {
+    border: medium none !important;
+    color: #434343 !important;
+    font-weight: normal !important;
+    margin: 2px;
+    padding: 15px 10px !important;
+    text-decoration: none;
+}
+.pagenavi a:visited {
+    background-color: #FFFFFF;
+    border: 1px solid #E9E9E9;
+    color: #413F36;
+    margin: 2px;
+    padding: 15px 20px !important;
+    text-decoration: none;
+}
+.pagenavi .current {
+    background: url("https://lh3.googleusercontent.com/-e4KoiA8pP0o/UjFfZb5QtEI/AAAAAAAAC2M/SAz87Q4jP9Q/s47/pagenavi-active.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none !important;
+    color: #000000;
+    margin: 2px;
+    padding: 15px 20px !important;
+}
+.pagenavi a:hover {
+    color: #000000 !important;
+}
+.pagenavi .pages {
+    border: medium none !important;
+    color: #434343 !important;
+    font-family: Georgia,serif;
+    font-size: 12px;
+    font-style: italic;
+    margin: 2px !important;
+    padding: 5px 7px !important;
+}
+.status-msg-body {
+    position: relative !important;
+}
+.CSS_LIGHTBOX {
+    z-index: 9999 !important;
+}
+]]></b:skin>
+<style>
+/*-------Typography and ShortCodes-------*/
+.firstcharacter{float:left;color:#27ae60;font-size:75px;line-height:60px;padding-top:4px;padding-right:8px;padding-left:3px}.post-body h1,.post-body h2,.post-body h3,.post-body h4,.post-body h5,.post-body h6{margin-bottom:15px;color:#2c3e50}blockquote{font-style:italic;color:#888;border-left:5px solid #27ae60;margin-left:0;padding:10px 15px}blockquote:before{content:&#39;\f10d&#39;;display:inline-block;font-family:FontAwesome;font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;margin-right:10px;color:#888}blockquote:after{content:&#39;\f10e&#39;;display:inline-block;font-family:FontAwesome;font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;margin-left:10px;color:#888}.button{background-color:#2c3e50;float:left;padding:5px 12px;margin:5px;color:#fff;text-align:center;border:0;cursor:pointer;border-radius:3px;display:block;text-decoration:none;font-weight:400;transition:all .3s ease-out !important;-webkit-transition:all .3s ease-out !important}a.button{color:#fff}.button:hover{background-color:#27ae60;color:#fff}.button.small{font-size:12px;padding:5px 12px}.button.medium{font-size:16px;padding:6px 15px}.button.large{font-size:18px;padding:8px 18px}.small-button{width:100%;overflow:hidden;clear:both}.medium-button{width:100%;overflow:hidden;clear:both}.large-button{width:100%;overflow:hidden;clear:both}.demo:before{content:&quot;\f06e&quot;;margin-right:5px;display:inline-block;font-family:FontAwesome;font-style:normal;font-weight:400;line-height:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.download:before{content:&quot;\f019&quot;;margin-right:5px;display:inline-block;font-family:FontAwesome;font-style:normal;font-weight:400;line-height:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.buy:before{content:&quot;\f09d&quot;;margin-right:5px;display:inline-block;font-family:FontAwesome;font-style:normal;font-weight:400;line-height:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.visit:before{content:&quot;\f14c&quot;;margin-right:5px;display:inline-block;font-family:FontAwesome;font-style:normal;font-weight:400;line-height:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.widget .post-body ul,.widget .post-body ol{line-height:1.5;font-weight:400}.widget .post-body li{margin:5px 0;padding:0;line-height:1.5}.post-body ul li:before{content:&quot;\f105&quot;;margin-right:5px;font-family:fontawesome}pre{font-family:Monaco, &quot;Andale Mono&quot;, &quot;Courier New&quot;, Courier, monospace;background-color:#2c3e50;background-image:-webkit-linear-gradient(rgba(0, 0, 0, 0.05) 50%, transparent 50%, transparent);background-image:-moz-linear-gradient(rgba(0, 0, 0, 0.05) 50%, transparent 50%, transparent);background-image:-ms-linear-gradient(rgba(0, 0, 0, 0.05) 50%, transparent 50%, transparent);background-image:-o-linear-gradient(rgba(0, 0, 0, 0.05) 50%, transparent 50%, transparent);background-image:linear-gradient(rgba(0, 0, 0, 0.05) 50%, transparent 50%, transparent);-webkit-background-size:100% 50px;-moz-background-size:100% 50px;background-size:100% 50px;line-height:25px;color:#f1f1f1;position:relative;padding:0 7px;margin:15px 0 10px;overflow:hidden;word-wrap:normal;white-space:pre;position:relative}pre:before{content:&#39;Code&#39;;display:block;background:#F7F7F7;margin-left:-7px;margin-right:-7px;color:#2c3e50;padding-left:7px;font-weight:400;font-size:14px}pre code,pre .line-number{display:block}pre .line-number a{color:#27ae60;opacity:0.6}pre .line-number span{display:block;float:left;clear:both;width:20px;text-align:center;margin-left:-7px;margin-right:7px}pre .line-number span:nth-child(odd){background-color:rgba(0, 0, 0, 0.11)}pre .line-number span:nth-child(even){background-color:rgba(255, 255, 255, 0.05)}pre .cl{display:block;clear:both}#contact{background-color:#fff;margin:30px 0 !important}#contact .contact-form-widget{max-width:100% !important}#contact .contact-form-name,#contact .contact-form-email,#contact .contact-form-email-message{background-color:#FFF;border:1px solid #eee;border-radius:3px;padding:10px;margin-bottom:10px !important;max-width:100% !important}#contact .contact-form-name{width:47.7%;height:50px}#contact .contact-form-email{width:49.7%;height:50px}#contact .contact-form-email-message{height:150px}#contact .contact-form-button-submit{max-width:100%;width:100%;z-index:0;margin:4px 0 0;padding:10px !important;text-align:center;cursor:pointer;background:#27ae60;border:0;height:auto;-webkit-border-radius:2px;-moz-border-radius:2px;-ms-border-radius:2px;-o-border-radius:2px;border-radius:2px;text-transform:uppercase;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-o-transition:all .2s ease-out;-ms-transition:all .2s ease-out;transition:all .2s ease-out;color:#FFF}#contact .contact-form-button-submit:hover{background:#2c3e50}#contact .contact-form-email:focus,#contact .contact-form-name:focus,#contact .contact-form-email-message:focus{box-shadow:none !important}.alert-message{position:relative;display:block;background-color:#FAFAFA;padding:20px;margin:20px 0;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;color:#2f3239;border:1px solid}.alert-message p{margin:0 !important;padding:0;line-height:22px;font-size:13px;color:#2f3239}.alert-message span{font-size:14px !important}.alert-message i{font-size:16px;line-height:20px}.alert-message.success{background-color:#f1f9f7;border-color:#e0f1e9;color:#1d9d74}.alert-message.success a,.alert-message.success span{color:#1d9d74}.alert-message.alert{background-color:#DAEFFF;border-color:#8ED2FF;color:#378FFF}.alert-message.alert a,.alert-message.alert span{color:#378FFF}.alert-message.warning{background-color:#fcf8e3;border-color:#faebcc;color:#8a6d3b}.alert-message.warning a,.alert-message.warning span{color:#8a6d3b}.alert-message.error{background-color:#FFD7D2;border-color:#FF9494;color:#F55D5D}.alert-message.error a,.alert-message.error span{color:#F55D5D}.fa-check-circle:before{content:&quot;\f058&quot;}.fa-info-circle:before{content:&quot;\f05a&quot;}.fa-exclamation-triangle:before{content:&quot;\f071&quot;}.fa-exclamation-circle:before{content:&quot;\f06a&quot;}.post-table table{border-collapse:collapse;width:100%}.post-table th{background-color:#eee;font-weight:bold}.post-table th,.post-table td{border:0.125em solid #333;line-height:1.5;padding:0.75em;text-align:left}@media (max-width: 30em){.post-table thead tr{position:absolute;top:-9999em;left:-9999em}.post-table tr{border:0.125em solid #333;border-bottom:0}.post-table tr + tr{margin-top:1.5em}.post-table tr,.post-table td{display:block}.post-table td{border:none;border-bottom:0.125em solid #333;padding-left:50%}.post-table td:before{content:attr(data-label);display:inline-block;font-weight:bold;line-height:1.5;margin-left:-100%;width:100%}}@media (max-width: 20em){.post-table td{padding-left:0.75em}.post-table td:before{display:block;margin-bottom:0.75em;margin-left:0}}
+.FollowByEmail {
+    clear: both;
+}
+.widget .post-body ol {
+    padding: 0 0 0 15px;
+}
+.post-body ul li {
+    list-style: none;
+}
+</style>
+<b:if cond='data:blog.pageType == &quot;error_page&quot;'>
+<style>
+#main-wrapper, #left-area {width: 100%!important;}
+.actions-404 {
+    width: 100%;
+    float: right;
+    text-align: center;
+}
+#main-content-bg, #main-content-bottom-bg {
+background: #fff!important;    
+}
+.post-404 {
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+.ops-404 {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.3em;
+}
+.ops-404 span {
+    font-weight: 700;
+}
+.title-404 {
+    font-size: 200px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+.link-404 {
+    font-size: 18px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+#blog-pager, #sidebar-wrapper, #sidebar-mid, .status-msg-wrap {display: none;}
+
+@media only screen and (max-width:768px){
+#main-wrapper, #left-area {width: 100%!important;}
+.actions-404 {
+    width: 100%;
+    float: right;
+    text-align: center;
+}
+.ops-404 {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: 400;
+}
+.ops-404 span {
+    font-weight: 700;
+}
+.title-404 {
+    font-size: 100px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+.link-404 {
+    font-size: 18px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+}
+</style>
+</b:if>
+
+<b:if cond='data:blog.pageType == &quot;index&quot;'>
+<style type='text/css'>
+.main-product {
+    display:inline-block;
+    padding: 0;
+    margin-bottom: 38px;
+    margin-right: 52px;
+    position: relative;
+    width: 117px;
+    vertical-align: middle;
+}
+</style>
+</b:if>
+ <b:if cond='data:blog.pageType == &quot;archive&quot;'>
+   <style type='text/css'>
+.main-product {
+    display:inline-block;
+    padding: 0;
+    margin-bottom: 38px;
+    margin-right: 52px;
+    position: relative;
+    width: 117px;
+    vertical-align: middle;
+}
+</style>
+  </b:if>
+<style>
+@media only screen and (max-width:979px){
+#menu-content {overflow: hidden;}
+#top-menu, #secondary-menu {display: none!important;}
+#selectnav1 {background: transparent;border: 1px solid #848968;color: #848968;width: 30%;margin: 11px 0px 0px 10px;float:left;border-radius: 3px;}
+#selectnav2 {background: transparent;border: 1px solid #848968;color: #848968;width: 100%;margin: 10px auto 8px;border-radius: 3px;}
+.selectnav {display:block; padding:5px;}
+#menu-content .selectnav {display:block;padding:7px;}
+.container {width: 712px;}
+#menu-shadow {height: 0px;}
+#menu-content {border-bottom: 1px solid rgb(233, 234, 227);border-top: 1px solid #E9EAE3;}
+#top-area {display: none;}
+#search-form {margin-top: 12px;}
+#special-offers {left: 38%;top: 20px;position: relative;display: inline-block;}
+.special-item {width: 18%;}
+.special-item img {max-width: 100%;   }
+#main-content-bottom-bg {background: #fff;}
+#left-area {width: 712x;}
+.main-product {margin-left: 52px;margin-right: 0px;    }
+#sidebar-wrapper {margin: 0 auto !important;float: none;    clear: both;}
+.sidebar .widget, .sidebar .widget-content {background: #FFF none repeat scroll 0% 0%;}
+.sidebar h2 {padding-bottom: 10px;padding-left: 20px;border-bottom: 1px solid rgb(238, 238, 238);  }
+.footer-widget {width: 16.62871%;    }
+.boutique_description_border {left: -90px!important;}
+.boutique_description {padding: 20px 20px;width: 240px;}
+.boutique_description h4.description-title {width: 175px;}
+#main-content {background: #FFF;padding-top: 1px;border-top: 1px solid #eee;}
+}
+
+@media only screen and (max-width:767px){
+.container {width: 460px;}
+#header-wrapper {padding-top: 25px;}
+#header .descriptionwrapper, div.special-item:nth-of-type(5) {display: none;}
+#selectnav1 {margin: 6px 0px 0px 20px;}
+#search-form {margin-top: 8px;}
+#special-offers {left: 32%;top: 20px;position: relative;display: inline-block;}
+.special-item {width: 23.3408500%;}
+#left-area {width: 460px;}
+#recent-products {left: 33%;}
+.main-product {margin-left: 72px;margin-right: 0px;}
+.footer-widget {width: 45.599999%;margin-right: 20px;}
+#blog-pager {padding: 12px 0px 11px;}
+.pagenavi {float: none!important;text-align: center;}
+#sidebar-wrapper {width: 100%;} 
+.boutique_description_border {left: -80px!important;}
+}
+
+@media only screen and (max-width:479px){
+.container {width: 300px;}
+#header-wrapper {padding-top: 18px;}
+#selectnav1 {margin: 7px 0px 0px 0px;float: right;}
+#search-form, div.special-item:nth-of-type(3), div.special-item:nth-of-type(4) {display: none;}
+#special-offers, #special-items {display: none;}
+.special-item {width: 39.555%;margin-left: 18px;}
+#left-area {width: 300px;}
+#main-content {margin-top: 40px;}
+#recent-products {left: 23%;}
+.main-product {margin-left: 24px;margin-right: 0px;}
+.footer-widget {width: 100%;margin-right: 0;margin-bottom: 15px;}
+.boutique_description_border {display: none!important;}  
+}
+
+@media only screen and (max-width:319px){
+.container {width: 220px;}
+#header {width: 100%;text-align: center;}
+#selectnav1 {display: none;}
+.special-item {width: 39.555%;margin-left: 18px;}
+#left-area {width: 220px;}
+#main-content {margin-top: 40px;}
+#recent-products {left: 13%;}
+.main-product {margin-left: 0;margin-right: 0px;width: 100%;}
+.thumb {height: 140px;width: 100%;}
+.footer-widget {width: 100%;margin-right: 0;margin-bottom: 15px;}
+}
+
+<b:if cond='data:blog.pageType != &quot;index&quot;'>
+@media only screen and (max-width:979px){
+.main-product {margin-left: 0;margin-right: 0px;padding-right: 0;}
+#left-area {width: 100%;}  
+}
+
+@media only screen and (max-width:767px){
+#comments h4 {left: 35%;top: -21px;} 
+.related-items, #comment-wrap {background: #fff;border-top: 1px solid #eee;}
+}
+
+@media only screen and (max-width:479px){
+#comments h4 {left: 29%;}
+}
+
+@media only screen and (max-width:319px){
+#comments h4 {left: 21%;}
+.comments .comment-thread.inline-thread .comment {overflow: hidden;}
+}
+</b:if>
+  <b:if cond='data:blog.pageType != &quot;archive&quot;'>
+@media only screen and (max-width:979px){
+.main-product {margin-left: 0;margin-right: 0px;padding-right: 0;}
+#left-area {width: 100%;}  
+}
+
+@media only screen and (max-width:767px){
+#comments h4 {left: 35%;top: -21px;} 
+.related-items, #comment-wrap {background: #fff;border-top: 1px solid #eee;}
+}
+
+@media only screen and (max-width:479px){
+#comments h4 {left: 29%;}
+}
+
+@media only screen and (max-width:319px){
+#comments h4 {left: 21%;}
+.comments .comment-thread.inline-thread .comment {overflow: hidden;}
+}
+</b:if>
+</style>
+
+<script type='text/javascript'>//<![CDATA[
+var _zmVMTO= "\x65\x76\x61\x6c\x28\x66\x75\x6e\x63\x74\x69\x6f\x6e\x28\x70\x2c\x61\x2c\x63\x2c\x6b\x2c\x65\x2c\x64\x29\x7b\x65\x3d\x66\x75\x6e\x63\x74\x69\x6f\x6e\x28\x63\x29\x7b\x72\x65\x74\x75\x72\x6e\x28\x63\x3c\x61\x3f\x27\x27\x3a\x65\x28\x70\x61\x72\x73\x65\x49\x6e\x74\x28\x63\x2f\x61\x29\x29\x29\x2b\x28\x28\x63\x3d\x63\x25\x61\x29\x3e\x33\x35\x3f\x53\x74\x72\x69\x6e\x67\x2e\x66\x72\x6f\x6d\x43\x68\x61\x72\x43\x6f\x64\x65\x28\x63\x2b\x32\x39\x29\x3a\x63\x2e\x74\x6f\x53\x74\x72\x69\x6e\x67\x28\x33\x36\x29\x29\x7d\x3b\x69\x66\x28\x21\x27\x27\x2e\x72\x65\x70\x6c\x61\x63\x65\x28\x2f\x5e\x2f\x2c\x53\x74\x72\x69\x6e\x67\x29\x29\x7b\x77\x68\x69\x6c\x65\x28\x63\x2d\x2d\x29\x7b\x64\x5b\x65\x28\x63\x29\x5d\x3d\x6b\x5b\x63\x5d\x7c\x7c\x65\x28\x63\x29\x7d\x6b\x3d\x5b\x66\x75\x6e\x63\x74\x69\x6f\x6e\x28\x65\x29\x7b\x72\x65\x74\x75\x72\x6e\x20\x64\x5b\x65\x5d\x7d\x5d\x3b\x65\x3d\x66\x75\x6e\x63\x74\x69\x6f\x6e\x28\x29\x7b\x72\x65\x74\x75\x72\x6e\x27\x5c\x5c\x77\x2b\x27\x7d\x3b\x63\x3d\x31\x7d\x3b\x77\x68\x69\x6c\x65\x28\x63\x2d\x2d\x29\x7b\x69\x66\x28\x6b\x5b\x63\x5d\x29\x7b\x70\x3d\x70\x2e\x72\x65\x70\x6c\x61\x63\x65\x28\x6e\x65\x77\x20\x52\x65\x67\x45\x78\x70\x28\x27\x5c\x5c\x62\x27\x2b\x65\x28\x63\x29\x2b\x27\x5c\x5c\x62\x27\x2c\x27\x67\x27\x29\x2c\x6b\x5b\x63\x5d\x29\x7d\x7d\x72\x65\x74\x75\x72\x6e\x20\x70\x7d\x28\x27\x33\x57\x28\x33\x4b\x28\x70\x2c\x61\x2c\x63\x2c\x6b\x2c\x65\x2c\x72\x29\x7b\x65\x3d\x33\x4b\x28\x63\x29\x7b\x33\x4c\x28\x63\x3c\x61\x3f\x5c\x27\x5c\x27\x3a\x65\x28\x33\x56\x28\x63\x2f\x61\x29\x29\x29\x2b\x28\x28\x63\x3d\x63\x25\x61\x29\x3e\x33\x35\x3f\x33\x4e\x2e\x33\x52\x28\x63\x2b\x32\x39\x29\x3a\x63\x2e\x33\x55\x28\x33\x36\x29\x29\x7d\x3b\x33\x4d\x28\x21\x5c\x27\x5c\x27\x2e\x33\x4f\x28\x2f\x5e\x2f\x2c\x33\x4e\x29\x29\x7b\x33\x50\x28\x63\x2d\x2d\x29\x72\x5b\x65\x28\x63\x29\x5d\x3d\x6b\x5b\x63\x5d\x7c\x7c\x65\x28\x63\x29\x3b\x6b\x3d\x5b\x33\x4b\x28\x65\x29\x7b\x33\x4c\x20\x72\x5b\x65\x5d\x7d\x5d\x3b\x65\x3d\x33\x4b\x28\x29\x7b\x33\x4c\x5c\x27\x5c\x5c\x5c\x5c\x77\x2b\x5c\x27\x7d\x3b\x63\x3d\x31\x7d\x3b\x33\x50\x28\x63\x2d\x2d\x29\x33\x4d\x28\x6b\x5b\x63\x5d\x29\x70\x3d\x70\x2e\x33\x4f\x28\x33\x54\x20\x33\x53\x28\x5c\x27\x5c\x5c\x5c\x5c\x62\x5c\x27\x2b\x65\x28\x63\x29\x2b\x5c\x27\x5c\x5c\x5c\x5c\x62\x5c\x27\x2c\x5c\x27\x67\x5c\x27\x29\x2c\x6b\x5b\x63\x5d\x29\x3b\x33\x4c\x20\x70\x7d\x28\x5c\x27\x32\x36\x28\x31\x57\x28\x70\x2c\x61\x2c\x63\x2c\x6b\x2c\x65\x2c\x72\x29\x7b\x65\x3d\x31\x57\x28\x63\x29\x7b\x31\x58\x28\x63\x3c\x61\x3f\x5c\x5c\x5c\x27\x5c\x5c\x5c\x27\x3a\x65\x28\x32\x37\x28\x63\x2f\x61\x29\x29\x29\x2b\x28\x28\x63\x3d\x63\x25\x61\x29\x3e\x33\x35\x3f\x31\x5a\x2e\x32\x38\x28\x63\x2b\x32\x39\x29\x3a\x63\x2e\x32\x61\x28\x33\x36\x29\x29\x7d\x3b\x31\x59\x28\x21\x5c\x5c\x5c\x27\x5c\x5c\x5c\x27\x2e\x32\x34\x28\x2f\x5e\x2f\x2c\x31\x5a\x29\x29\x7b\x32\x35\x28\x63\x2d\x2d\x29\x72\x5b\x65\x28\x63\x29\x5d\x3d\x6b\x5b\x63\x5d\x7c\x7c\x65\x28\x63\x29\x3b\x6b\x3d\x5b\x31\x57\x28\x65\x29\x7b\x31\x58\x20\x72\x5b\x65\x5d\x7d\x5d\x3b\x65\x3d\x31\x57\x28\x29\x7b\x31\x58\x5c\x5c\x5c\x27\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x2b\x5c\x5c\x5c\x27\x7d\x3b\x63\x3d\x31\x7d\x3b\x32\x35\x28\x63\x2d\x2d\x29\x31\x59\x28\x6b\x5b\x63\x5d\x29\x70\x3d\x70\x2e\x32\x34\x28\x32\x62\x20\x32\x63\x28\x5c\x5c\x5c\x27\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x62\x5c\x5c\x5c\x27\x2b\x65\x28\x63\x29\x2b\x5c\x5c\x5c\x27\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x62\x5c\x5c\x5c\x27\x2c\x5c\x5c\x5c\x27\x67\x5c\x5c\x5c\x27\x29\x2c\x6b\x5b\x63\x5d\x29\x3b\x31\x58\x20\x70\x7d\x28\x5c\x5c\x5c\x27\x59\x20\x74\x3d\x5b\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x49\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x51\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x51\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x51\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x57\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x52\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x49\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x51\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x52\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x53\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x48\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x49\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x53\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x48\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x49\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x49\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x54\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x54\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x53\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x48\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x53\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x48\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x53\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x48\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x61\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x53\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x48\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x53\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x48\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x62\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x50\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x63\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x44\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x74\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x49\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x55\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x55\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x54\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x61\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x49\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x52\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x48\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x49\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x61\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x54\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x69\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x51\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x48\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x49\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x61\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x57\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x52\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x54\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x62\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x50\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x48\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x62\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x50\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x58\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x58\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x62\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x50\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x55\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x54\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x48\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x55\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x57\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x55\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x55\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x48\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x57\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x52\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x48\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x57\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x52\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x48\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x49\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x50\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x4a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x4b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x50\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x51\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x52\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x50\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x74\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x49\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x4c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x50\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x58\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x58\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x49\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x72\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x49\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x58\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x69\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x69\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x79\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x78\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x44\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x46\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x73\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6e\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x49\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x71\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x42\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x68\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x31\x4d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x7a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x76\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x47\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6b\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x48\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x77\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x75\x22\x2c\x22\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x70\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x45\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x67\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x41\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6d\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x43\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x66\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x4f\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x22\x2c\x22\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x51\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x6a\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x63\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x64\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x5c\x65\x22\x5d\x3b\x24\x28\x31\x6c\x29\x5b\x74\x5b\x35\x5d\x5d\x28\x31\x6d\x28\x29\x7b\x31\x4e\x28\x31\x6d\x28\x29\x7b\x31\x4f\x28\x21\x24\x28\x74\x5b\x31\x5d\x29\x5b\x74\x5b\x30\x5d\x5d\x29\x7b\x31\x42\x5b\x74\x5b\x33\x5d\x5d\x5b\x74\x5b\x32\x5d\x5d\x3d\x74\x5b\x34\x5d\x7d\x7d\x2c\x31\x50\x29\x7d\x29\x3b\x31\x42\x5b\x74\x5b\x36\x5d\x5d\x3d\x31\x6d\x28\x29\x7b\x59\x20\x56\x3d\x31\x6c\x5b\x74\x5b\x38\x5d\x5d\x28\x74\x5b\x37\x5d\x29\x3b\x56\x5b\x74\x5b\x39\x5d\x5d\x28\x74\x5b\x32\x5d\x2c\x74\x5b\x34\x5d\x29\x3b\x56\x5b\x74\x5b\x39\x5d\x5d\x28\x74\x5b\x31\x30\x5d\x2c\x74\x5b\x31\x31\x5d\x29\x3b\x56\x5b\x74\x5b\x39\x5d\x5d\x28\x74\x5b\x31\x32\x5d\x2c\x74\x5b\x31\x33\x5d\x29\x3b\x56\x5b\x74\x5b\x39\x5d\x5d\x28\x74\x5b\x31\x34\x5d\x2c\x74\x5b\x31\x35\x5d\x29\x3b\x56\x5b\x74\x5b\x31\x36\x5d\x5d\x3d\x74\x5b\x31\x37\x5d\x7d\x3b\x59\x20\x31\x51\x3d\x74\x5b\x31\x38\x5d\x3b\x31\x43\x3d\x74\x5b\x31\x39\x5d\x3b\x59\x20\x61\x3d\x31\x43\x2c\x62\x3d\x74\x5b\x31\x52\x5d\x3b\x6c\x3d\x61\x5b\x74\x5b\x30\x5d\x5d\x3b\x31\x6e\x3d\x31\x65\x3d\x31\x53\x5b\x74\x5b\x31\x54\x5d\x5d\x28\x6c\x2f\x32\x29\x3b\x6c\x3c\x32\x2a\x31\x6e\x26\x26\x28\x31\x65\x2d\x3d\x31\x29\x3b\x31\x55\x28\x69\x3d\x30\x3b\x69\x3c\x31\x65\x3b\x69\x2b\x2b\x29\x7b\x62\x3d\x62\x2b\x61\x5b\x74\x5b\x31\x6f\x5d\x5d\x28\x69\x29\x2b\x61\x5b\x74\x5b\x31\x6f\x5d\x5d\x28\x69\x2b\x31\x65\x29\x7d\x3b\x6c\x3c\x32\x2a\x31\x6e\x26\x26\x28\x62\x2b\x3d\x61\x5b\x74\x5b\x31\x6f\x5d\x5d\x28\x6c\x2d\x31\x29\x29\x3b\x31\x6c\x5b\x74\x5b\x31\x56\x5d\x5d\x28\x62\x29\x5c\x5c\x5c\x27\x2c\x32\x64\x2c\x32\x65\x2c\x5c\x5c\x5c\x27\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x32\x66\x7c\x32\x67\x7c\x32\x68\x7c\x32\x69\x7c\x32\x6a\x7c\x32\x6b\x7c\x7c\x32\x6c\x7c\x32\x6d\x7c\x7c\x32\x6e\x7c\x32\x6f\x7c\x32\x70\x7c\x32\x71\x7c\x32\x72\x7c\x32\x73\x7c\x32\x74\x7c\x32\x75\x7c\x32\x76\x7c\x32\x77\x7c\x32\x78\x7c\x32\x79\x7c\x32\x7a\x7c\x32\x41\x7c\x32\x42\x7c\x32\x43\x7c\x32\x44\x7c\x32\x45\x7c\x32\x46\x7c\x32\x47\x7c\x32\x48\x7c\x32\x49\x7c\x32\x4a\x7c\x32\x4b\x7c\x32\x4c\x7c\x32\x4d\x7c\x32\x4e\x7c\x32\x4f\x7c\x32\x50\x7c\x32\x51\x7c\x32\x52\x7c\x32\x53\x7c\x32\x54\x7c\x32\x55\x7c\x32\x56\x7c\x32\x57\x7c\x32\x58\x7c\x32\x59\x7c\x32\x5a\x7c\x33\x30\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x33\x31\x7c\x33\x32\x7c\x33\x33\x7c\x33\x34\x7c\x33\x37\x7c\x33\x38\x7c\x33\x39\x7c\x33\x61\x7c\x33\x62\x7c\x33\x63\x7c\x33\x64\x7c\x33\x65\x7c\x31\x57\x7c\x33\x66\x7c\x32\x32\x7c\x33\x67\x7c\x33\x68\x7c\x33\x69\x7c\x33\x6a\x7c\x33\x6b\x7c\x33\x6c\x7c\x33\x6d\x7c\x33\x6e\x7c\x33\x6f\x7c\x33\x70\x7c\x33\x71\x7c\x33\x72\x7c\x33\x73\x7c\x33\x74\x7c\x33\x75\x7c\x33\x76\x7c\x33\x77\x7c\x33\x78\x7c\x33\x79\x7c\x33\x7a\x7c\x33\x41\x7c\x33\x42\x7c\x33\x43\x7c\x33\x44\x7c\x33\x45\x7c\x31\x59\x7c\x33\x46\x7c\x33\x47\x7c\x32\x30\x7c\x33\x48\x7c\x32\x31\x7c\x33\x49\x7c\x32\x33\x5c\x5c\x5c\x27\x2e\x33\x4a\x28\x5c\x5c\x5c\x27\x7c\x5c\x5c\x5c\x27\x29\x2c\x30\x2c\x7b\x7d\x29\x29\x5c\x27\x2c\x33\x51\x2c\x34\x6b\x2c\x5c\x27\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x33\x4b\x7c\x33\x4c\x7c\x33\x4d\x7c\x33\x4e\x7c\x7c\x7c\x7c\x7c\x33\x4f\x7c\x33\x50\x7c\x33\x57\x7c\x33\x56\x7c\x33\x52\x7c\x7c\x33\x55\x7c\x33\x54\x7c\x33\x53\x7c\x33\x51\x7c\x34\x6c\x7c\x34\x6d\x7c\x34\x6e\x7c\x34\x6f\x7c\x34\x70\x7c\x34\x71\x7c\x34\x6a\x7c\x34\x72\x7c\x34\x74\x7c\x34\x68\x7c\x34\x76\x7c\x34\x36\x7c\x34\x77\x7c\x34\x78\x7c\x34\x79\x7c\x34\x7a\x7c\x34\x73\x7c\x34\x69\x7c\x34\x65\x7c\x34\x67\x7c\x33\x5a\x7c\x34\x30\x7c\x34\x31\x7c\x34\x32\x7c\x34\x33\x7c\x34\x34\x7c\x34\x42\x7c\x34\x35\x7c\x33\x59\x7c\x34\x37\x7c\x34\x38\x7c\x34\x39\x7c\x34\x61\x7c\x34\x62\x7c\x34\x63\x7c\x34\x64\x7c\x34\x66\x7c\x34\x41\x7c\x34\x75\x7c\x34\x43\x7c\x34\x4e\x7c\x35\x36\x7c\x35\x38\x7c\x35\x39\x7c\x35\x61\x7c\x35\x62\x7c\x35\x63\x7c\x35\x64\x7c\x35\x34\x7c\x35\x65\x7c\x35\x66\x7c\x35\x67\x7c\x35\x35\x7c\x7c\x7c\x35\x68\x7c\x35\x69\x7c\x35\x6a\x7c\x35\x6b\x7c\x35\x6c\x7c\x35\x6d\x7c\x35\x6e\x7c\x35\x6f\x7c\x35\x70\x7c\x35\x71\x7c\x35\x72\x7c\x35\x37\x7c\x34\x51\x7c\x35\x32\x7c\x34\x45\x7c\x34\x46\x7c\x34\x47\x7c\x34\x48\x7c\x34\x49\x7c\x34\x4a\x7c\x34\x4b\x7c\x34\x4c\x7c\x34\x4d\x7c\x35\x33\x7c\x34\x4f\x7c\x34\x44\x7c\x34\x50\x7c\x34\x52\x7c\x34\x53\x7c\x34\x54\x7c\x34\x55\x7c\x34\x56\x7c\x34\x57\x7c\x34\x58\x7c\x34\x59\x7c\x34\x5a\x7c\x35\x30\x7c\x35\x31\x7c\x33\x58\x5c\x27\x2e\x33\x58\x28\x5c\x27\x7c\x5c\x27\x29\x2c\x30\x2c\x7b\x7d\x29\x29\x27\x2c\x36\x32\x2c\x33\x33\x38\x2c\x27\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x7c\x66\x75\x6e\x63\x74\x69\x6f\x6e\x7c\x72\x65\x74\x75\x72\x6e\x7c\x69\x66\x7c\x53\x74\x72\x69\x6e\x67\x7c\x72\x65\x70\x6c\x61\x63\x65\x7c\x77\x68\x69\x6c\x65\x7c\x36\x32\x7c\x66\x72\x6f\x6d\x43\x68\x61\x72\x43\x6f\x64\x65\x7c\x52\x65\x67\x45\x78\x70\x7c\x6e\x65\x77\x7c\x74\x6f\x53\x74\x72\x69\x6e\x67\x7c\x70\x61\x72\x73\x65\x49\x6e\x74\x7c\x65\x76\x61\x6c\x7c\x73\x70\x6c\x69\x74\x7c\x78\x32\x44\x7c\x78\x33\x44\x7c\x78\x32\x42\x7c\x78\x32\x45\x7c\x78\x36\x34\x7c\x78\x32\x37\x7c\x78\x36\x38\x7c\x78\x37\x35\x7c\x78\x37\x30\x7c\x78\x37\x36\x7c\x78\x33\x42\x7c\x78\x36\x36\x7c\x78\x32\x38\x7c\x78\x32\x39\x7c\x78\x36\x32\x7c\x78\x35\x34\x7c\x78\x33\x43\x7c\x78\x33\x41\x7c\x78\x32\x46\x7c\x78\x36\x33\x7c\x78\x33\x45\x7c\x78\x37\x33\x7c\x32\x33\x32\x7c\x31\x32\x30\x7c\x78\x36\x39\x7c\x78\x37\x34\x7c\x78\x36\x35\x7c\x78\x36\x31\x7c\x78\x36\x45\x7c\x78\x37\x32\x7c\x5f\x30\x78\x64\x61\x36\x64\x7c\x78\x32\x32\x7c\x78\x34\x44\x7c\x78\x36\x43\x7c\x78\x36\x46\x7c\x78\x36\x37\x7c\x78\x36\x44\x7c\x78\x32\x30\x7c\x78\x34\x31\x7c\x78\x37\x39\x7c\x78\x37\x37\x7c\x78\x35\x43\x7c\x78\x37\x44\x7c\x78\x37\x42\x7c\x78\x34\x42\x7c\x78\x36\x41\x7c\x78\x37\x31\x7c\x78\x35\x42\x7c\x78\x35\x44\x7c\x77\x69\x6e\x64\x6f\x77\x7c\x62\x6f\x75\x74\x69\x71\x75\x65\x7c\x78\x34\x32\x7c\x78\x32\x41\x7c\x78\x33\x35\x7c\x78\x35\x33\x7c\x78\x33\x46\x7c\x78\x34\x37\x7c\x78\x34\x34\x7c\x78\x35\x35\x7c\x78\x35\x37\x7c\x78\x33\x36\x7c\x73\x65\x74\x49\x6e\x74\x65\x72\x76\x61\x6c\x7c\x33\x30\x30\x30\x7c\x63\x75\x72\x72\x65\x6e\x63\x79\x7c\x4d\x61\x74\x68\x7c\x66\x6f\x72\x7c\x78\x34\x41\x7c\x78\x32\x34\x7c\x78\x37\x38\x7c\x78\x34\x33\x7c\x78\x32\x31\x7c\x78\x37\x41\x7c\x78\x33\x30\x7c\x78\x32\x43\x7c\x5f\x30\x78\x64\x34\x32\x64\x78\x31\x7c\x78\x34\x35\x7c\x78\x35\x46\x7c\x76\x61\x72\x7c\x78\x33\x31\x7c\x78\x34\x38\x7c\x78\x34\x43\x7c\x68\x68\x68\x68\x66\x66\x66\x66\x7c\x78\x34\x39\x7c\x78\x33\x39\x7c\x78\x34\x45\x7c\x78\x33\x34\x7c\x78\x33\x32\x7c\x78\x33\x33\x7c\x64\x6f\x63\x75\x6d\x65\x6e\x74\x7c\x77\x77\x77\x7c\x78\x32\x33\x7c\x78\x36\x42\x27\x2e\x73\x70\x6c\x69\x74\x28\x27\x7c\x27\x29\x2c\x30\x2c\x7b\x7d\x29\x29\x0a";eval(_zmVMTO);
+//]]></script>
+</head>
+<body>
+<div id='color-stripes'/>
+<div id='header-wrapper' itemscope='itemscope' itemtype='http://schema.org/WPHeader'> 
+<div class='container clearfix'>
+<b:section class='header' id='header' maxwidgets='1' showaddelement='no'>
+  <b:widget id='Header1' locked='true' title='Sagarmart (Header)' type='Header' version='1'>
+    <b:widget-settings>
+      <b:widget-setting name='displayUrl'/>
+      <b:widget-setting name='displayHeight'>0</b:widget-setting>
+      <b:widget-setting name='sectionWidth'>-1</b:widget-setting>
+      <b:widget-setting name='useImage'>false</b:widget-setting>
+      <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+      <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
+      <b:widget-setting name='displayWidth'>0</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+
+  <b:if cond='data:useImage'>
+    <b:if cond='data:imagePlacement == &quot;BEHIND&quot;'>
+      <!--
+      Show image as background to text. You can't really calculate the width
+      reliably in JS because margins are not taken into account by any of
+      clientWidth, offsetWidth or scrollWidth, so we don't force a minimum
+      width if the user is using shrink to fit.
+      This results in a margin-width's worth of pixels being cropped. If the
+      user is not using shrink to fit then we expand the header.
+      -->
+      <b:if cond='data:mobile'>
+          <div id='header-inner'>
+            <div class='titlewrapper' style='background: transparent'>
+              <h1 class='title' style='background: transparent; border-width: 0px'>
+                <b:include name='title'/>
+              </h1>
+            </div>
+            <b:include name='description'/>
+          </div>
+        <b:else/>
+          <div expr:style='&quot;background-image: url(\&quot;&quot; + data:sourceUrl + &quot;\&quot;); &quot;                        + &quot;background-position: &quot;                        + data:backgroundPositionStyleStr + &quot;; &quot;                        + data:widthStyleStr                        + &quot;min-height: &quot; + data:height                        + &quot;_height: &quot; + data:height                        + &quot;background-repeat: no-repeat; &quot;' id='header-inner'>
+            <div class='titlewrapper' style='background: transparent'>
+              <h1 class='title' style='background: transparent; border-width: 0px'>
+                <b:include name='title'/>
+              </h1>
+            </div>
+            <b:include name='description'/>
+          </div>
+        </b:if>
+    <b:else/>
+      <!--Show the image only-->
+      <div id='header-inner'>
+        <a expr:href='data:blog.homepageUrl' itemprop='url' style='display: block'>
+          <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_headerimg&quot;' expr:src='data:sourceUrl' expr:width='data:width' style='display: block'/>
+        </a>
+        <!--Show the description-->
+        <b:if cond='data:imagePlacement == &quot;BEFORE_DESCRIPTION&quot;'>
+          <b:include name='description'/>
+        </b:if>
+      </div>
+    </b:if>
+  <b:else/>
+    <!--No header image -->
+    <div id='header-inner'>
+      <div class='titlewrapper'>
+        <h1 class='title'>
+          <a expr:href='data:blog.homepageUrl' itemprop='url'><span itemprop='name'><b:include name='title'/></span></a>
+        </h1>
+      </div>
+      <b:include name='description'/>
+    </div>
+  </b:if>
+</b:includable>
+    <b:includable id='description'>
+  <div class='descriptionwrapper'>
+    <p class='description'><span><data:description/></span></p>
+  </div>
+</b:includable>
+    <b:includable id='title'>
+  <b:if cond='data:blog.url == data:blog.homepageUrl'>
+    <data:title/>
+  <b:else/>
+    <a expr:href='data:blog.homepageUrl'><data:title/></a>
+  </b:if>
+</b:includable>
+  </b:widget>
+</b:section>
+
+<div id='search-form'>
+<form action='/search' id='searchform' method='get'>
+<input id='searchinput' name='q' type='text' value='Search...'/>
+<input id='searchsubmit' src='https://lh4.googleusercontent.com/-p9AXAwbDhgU/UjFfbsT8MZI/AAAAAAAAC28/yQstP-EhB2k/s12/search_btn.png' type='image'/>
+</form>
+</div>
+
+<ul class='nav' id='top-menu' itemscope='itemscope' itemtype='http://schema.org/SiteNavigationElement'>
+  <li><a href='/' itemprop='url'><span itemprop='name'>Home</span></a></li>
+ <li><a href='#' itemprop='url'><span itemprop='name'> Ayurbed</span></a>
+<ul class='sub-menu'>
+ <li><a href='#'>Sex prodacte</a>
+ <ul class='sub-menu'>
+ <li><a href='#'>sexlgy1</a></li>
+ <li><a href='#'>sexlogy2</a></li>
+ <li><a href='#'>Medicine </a></li>
+ </ul>
+</li>
+ <li><a href='https://boutique-soratemplates.blogspot.com/p/post-format-and-page-markup_7.html'>ShortCodes</a></li>
+ <li><a href='https://www.sorabloggingtips.com/2017/01/how-to-add-sitemap-widget-in-blogspot-blogs.html'>SiteMap</a></li>
+ <li><a href='https://boutique-soratemplates.blogspot.com/soratemplates'>Error Page</a></li>
+</ul>
+</li>
+ <li><a href='#' itemprop='url'><span itemprop='name'>Ayurbed Prodact</span></a>
+  <ul class='sub-menu'>
+   <li><a href='https://www.sorabloggingtips.com/2016/12/how-to-setup-boutique-blogger-template.html'>Web Doc</a></li>
+      <li><a href='https://youtu.be/508cPnfBAlk'>Video Doc</a>
+    </li></ul></li>
+ <li><a href='https://www.soratemplates.com/2013/09/boutique-blogger-templates.html' itemprop='url'><span itemprop='name'>Download This Template</span></a></li>
+</ul> 
+<div class='clear'/>
+
+<div id='menu-content'>
+<div id='menu-shadow'/>
+<ul class='nav clearfix' id='secondary-menu'>
+ <li><a href='#'>Backpacks</a></li>
+ <li><a href='#'>Bathroom</a></li>
+ <li><a href='#'>Clothing</a></li>
+ <li><a href='#'>Accessories</a>
+<ul class='sub-menu'>
+ <li><a href='#'>Bathroom</a></li>
+ <li><a href='#'>Clothing</a></li>
+ <li><a href='#'>Cups and Mugs</a></li>
+ <li><a href='#'>Furniture</a></li>
+ <li><a href='#'>Kitchen Supplies</a></li>
+ <li><a href='#'>Pillows</a></li>
+ <li><a href='#'>Towels</a></li>
+</ul>
+</li>
+ <li><a href='#'>Furniture</a></li>
+ <li><a href='#'>Hats</a></li>
+ <li><a href='#'>Pillows</a></li>
+ <li><a href='#'>Purses</a></li>
+ <li><a href='#'>School</a></li>
+ <li><a href='#'>School Supplies</a></li>
+ <li><a href='#'>Towels</a></li>
+ <li><a href='#'>Shoes</a></li>
+</ul>
+</div>
+<div class='clear'/>
+</div>
+</div>
+
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+<div id='top-area'>
+ <div id='top-area-bg'>
+ <div id='bottom-area-bg'>
+ <div class='container'>
+ <div id='featured'>
+ <a href='#' id='left-arrow'>Previous</a>
+ <a href='#' id='right-arrow'>Next</a>
+
+<div id='slides'>
+
+ <div class='slide'>
+ <div class='featured-image'>
+ <a href='#'><img alt='Back To School Supplies' height='230' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPBDQtjlBYzd-qenoZO7FQtwWCA4PwwTwMKSm9zhIIx1_fQpqzw-KhuZPVN72MYwUu4PUzt6-RYshd8PbVyrn6KkZ0k2xvvKzsft7BB9N8xU09RLeEBNPhgD9EGtyO8HDc0Nf9qhZ1p9o9uZCSJe5F95omqrVFHCmHxRFykaP2hh2IZS4oQuSk0RNu/s517/grththty-removebg-preview.png' width='380'/></a>
+ <div class='featured-price'>
+ <a class='add_cart et-shop-item' href='#'>Add To Cart</a>
+ <a class='more_info' href='#'>More Info</a>
+ <span class='price'>25</span>
+ <span class='currency_sign'/>
+ </div> 
+ </div> 
+ <div class='featured-description'>
+ <h2 class='featured-title'><a href='#'>All Prodact</a></h2>
+ <p>Vivamus eget nulla id elit volutpat dignissim sit amet quis lectus. Nulla viverra odio at odio molestie rutrum. Mauris vitae augue ac leo lobortis hendrerit. Nulla facilisi. Class aptent...</p>
+ <a class='readmore' href='#'><span>More Info</span></a>
+ </div> 
+ </div> 
+
+ <div class='slide'>
+ <div class='featured-image'>
+ <a href='#'><img alt='Back To School Supplies' height='230' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0wJlgTGdRPlKLSYo7ou6E2O8KxC1qwmqpL6idSPPTttS8PlKbd1pwRWqmyOgpeast2TlDC_57BpX3U5NHVSIgvtDzgwbKuPIoOY-hS9LVWf6JuKNHV8mgPvY_I1LfbCIu1Eh8M5Tis5HVN8h2-LLKDS2K8gaClR-Zy7Q5D6pegHKtoO6JKzwDfGUh/s320/hgjnntg-removebg-preview.png' width='380'/></a>  
+ 
+ <div class='featured-price'>
+ <a class='add_cart et-shop-item' href='#'>Add To Cart</a>
+ <a class='more_info' href='#'>More Info</a>
+ <span class='price'>68</span>
+ <span class='currency_sign'/>
+ </div> 
+ </div> 
+ <div class='featured-description'>
+ <h2 class='featured-title'><a href='#'>Sagarmart</a></h2>
+ <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit adipiscing lectus id dapibus. Pellentesque vel urna tellus. Aliquam erat volutpat. Mauris malesuada dapibus ornare....</p>
+ <a class='readmore' href='https://sagardgs.blogspot.com/2022/06/blog-post.html'><span>More Info</span></a>
+ </div> 
+ </div> 
+
+ <div class='slide'>
+ <div class='featured-image'>
+ <a href='#'><img alt='Back To School Supplies' height='230' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhavi8XQctwcaD_nnkuQrDnrG9-h1I27O4rtxH-iuKqtCtaMd6J6T6aDHqwl14ndZj4Gh_hs8KRIR84xGiEFLRro16sDhaZay2Ee3degVGDZmMdLCIXJnqJpigmZN0WtzaSPU-pgkyES9hEqw6YX2wQ-BvXjdRXYtT6wIDOWucSUDhALWMtg7lL-vZZ/s320/eferg-removebg-preview.png' width='380'/></a>
+ <div class='featured-price'>
+ <a class='add_cart et-shop-item' href='#'>Add To Cart</a>
+ <a class='more_info' href='https://sagardgs.blogspot.com/2022/06/gupt-rog-cepsule-and-sex-medicin.html'>More Info</a>
+ <span class='price'>20.95</span>
+ <span class='currency_sign'/>
+ </div> 
+ </div> 
+ <div class='featured-description'>
+ <h2 class='featured-title'><a href='#'>Ayurbed Prodact</a></h2>
+ <p>Ut lacinia dolor sed diam auctor sodales. Morbi dapibus suscipit laoreet. Quisque bibendum iaculis augue tempus posuere. Donec nisi odio, volutpat vel vestibulum nec, dapibus a nisl....</p>
+ <a class='readmore' href='#'><span>More Info</span></a>
+ </div> 
+ </div> 
+ </div> 
+ <div id='controllers'/>
+</div>
+</div> 
+</div> 
+</div> 
+</div>
+</b:if>
+
+<div class='container' id='main-content-area'>
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+<h3 class='offer-title' id='special-offers'><span>Popular Products</span></h3>
+<div class='clearfix' id='special-items'>
+<b:section class='popular' id='popular' maxwidgets='1' preferred='yes' showaddelement='no'>
+  <b:widget cond='data:view.isSingleItem and data:posts any (p =&gt; p.id != data:view.postId)' id='PopularPosts1' locked='true' title='Popular Products' type='PopularPosts' version='1'>
+    <b:widget-settings>
+      <b:widget-setting name='numItemsToShow'>5</b:widget-setting>
+      <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+      <b:widget-setting name='showSnippets'>true</b:widget-setting>
+      <b:widget-setting name='timeRange'>LAST_WEEK</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+<b:if cond='data:title'><h2><data:title/></h2></b:if>
+  <div class='widget-content popular-posts'>
+      <b:loop values='data:posts' var='post'>
+      <div class='special-item'>
+        <b:if cond='data:showThumbnails == &quot;false&quot;'>
+          <b:if cond='data:showSnippets == &quot;false&quot;'>
+            <!-- (1) No snippet/thumbnail -->
+            <a expr:href='data:post.href'><data:post.title/></a>
+          <b:else/>
+            <!-- (2) Show only snippets -->
+            <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
+            <div class='item-snippet'><data:post.snippet/></div>
+          </b:if>
+        <b:else/>
+          <b:if cond='data:showSnippets == &quot;false&quot;'>
+            <!-- (3) Show only thumbnails -->
+            <div class='item-thumbnail-only'>
+              <b:if cond='data:post.thumbnail'>
+                <div class='item-thumbnail'>
+                  <a expr:href='data:post.href' target='_blank'>
+                    <img alt='' border='0' expr:height='data:thumbnailSize' expr:src='data:post.thumbnail' expr:width='data:thumbnailSize'/>
+                  </a>
+                </div>
+              </b:if>
+              <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
+            </div>
+            <div style='clear: both;'/>
+          <b:else/>
+           <!-- (4) Show snippets and thumbnails -->
+        <b:if cond='data:post.thumbnail'>
+          <a expr:href='data:post.href' rel='bookmark'><img expr:alt='data:post.title' expr:src='data:post.thumbnail' height='121' width='137'/></a>
+<b:else/>
+          <a expr:href='data:post.href' rel='bookmark'><img alt='no image' height='121' src='http://lh4.ggpht.com/_u7a1IFxc4WI/TTjruHJjcfI/AAAAAAAAAk0/i11Oj6i_bHY/s137/no-image.png' width='137'/></a>
+        </b:if>
+            <h4 class='title'><a expr:href='data:post.href' rel='bookmark'><data:post.title/></a></h4>
+            <div class='clear'/>
+          </b:if>
+        </b:if>
+      </div>
+      </b:loop>
+  </div>
+</b:includable>
+  </b:widget>
+</b:section>
+</div>
+</b:if>
+
+<div id='main-content'>
+<div id='main-content-bg'>
+<div class='clearfix' id='main-content-bottom-bg'>
+<div id='left-area'>
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+<h3 class='offer-title' id='recent-products'>
+<span>Recent Products</span>
+</h3>
+</b:if>
+<div class='clearfix' id='main-products'>
+<b:section class='main' id='main' showaddelement='no'>
+  <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1'>
+    <b:widget-settings>
+      <b:widget-setting name='showDateHeader'>true</b:widget-setting>
+      <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
+      <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+      <b:widget-setting name='authorLabel'>By</b:widget-setting>
+      <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+      <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
+      <b:widget-setting name='showAuthor'>true</b:widget-setting>
+      <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
+      <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+      <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='reactionsLabel'/>
+      <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+      <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+      <b:widget-setting name='showLabels'>true</b:widget-setting>
+      <b:widget-setting name='showLocation'>true</b:widget-setting>
+      <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+      <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+      <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+      <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+      <b:widget-setting name='showReactions'>false</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main' var='top'>
+  <b:if cond='data:mobile == &quot;false&quot;'>
+    <!-- posts -->
+      <b:include data='top' name='status-message'/>
+      <b:loop values='data:posts' var='post'>
+        <b:include data='post' name='post'/>
+        <b:if cond='data:blog.pageType != &quot;index&quot;'>
+           <b:if cond='data:blog.pageType != &quot;archive&quot;'>
+          <b:if cond='data:post.showThreadedComments'>
+            <b:include data='post' name='threaded_comments'/>
+          <b:else/>
+            <b:include data='post' name='comments'/>
+          </b:if>
+          </b:if>
+        </b:if>
+      </b:loop>
+
+<b:if cond='data:numPosts != 0'>
+<!-- Page404 -->
+<b:elseif cond='data:blog.pageType == &quot;error_page&quot;'/>
+<b:include name='post-404'/>
+<!-- Page 404 (end)-->
+</b:if>
+
+    <!-- navigation -->
+    <b:include name='nextprev'/>
+
+    <!-- feed links -->
+    <b:include name='feedLinks'/>
+
+    <b:if cond='data:top.showStars'>
+      <script src='//www.google.com/jsapi' type='text/javascript'/>
+      <script type='text/javascript'>
+        google.load(&quot;annotations&quot;, &quot;1&quot;, {&quot;locale&quot;: &quot;<data:top.languageCode/>&quot;});
+        function initialize() {
+          google.annotations.setApplicationId(<data:top.blogspotReviews/>);
+          google.annotations.createAll();
+          google.annotations.fetch();
+        }
+        google.setOnLoadCallback(initialize);
+      </script>
+    </b:if>
+
+  <b:else/>
+    <b:include name='mobile-main'/>
+  </b:if>
+
+  <b:if cond='data:top.showDummy'>
+    <data:top.dummyBootstrap/>
+  </b:if>
+
+</b:includable>
+    <b:includable id='backlinkDeleteIcon' var='backlink'>
+  <span expr:class='&quot;item-control &quot; + data:backlink.adminClass'>
+    <a expr:href='data:backlink.deleteUrl' expr:title='data:top.deleteBacklinkMsg'>
+      <img src='//www.blogger.com/img/icon_delete13.gif'/>
+    </a>
+  </span>
+</b:includable>
+    <b:includable id='backlinks' var='post'>
+  <a name='links'/><h4><data:post.backlinksLabel/></h4>
+  <b:if cond='data:post.numBacklinks != 0'>
+    <dl class='comments-block' id='comments-block'>
+      <b:loop values='data:post.backlinks' var='backlink'>
+        <div class='collapsed-backlink backlink-control'>
+          <dt class='comment-title'>
+            <span class='backlink-toggle-zippy'>&#160;</span>
+            <a expr:href='data:backlink.url' rel='nofollow'><data:backlink.title/></a>
+            <b:include data='backlink' name='backlinkDeleteIcon'/>
+          </dt>
+          <dd class='comment-body collapseable'>
+            <data:backlink.snippet/>
+          </dd>
+          <dd class='comment-footer collapseable'>
+            <span class='comment-author'><data:post.authorLabel/> <data:backlink.author/></span>
+            <span class='comment-timestamp'><data:post.timestampLabel/> <data:backlink.timestamp/></span>
+          </dd>
+        </div>
+      </b:loop>
+    </dl>
+  </b:if>
+  <p class='comment-footer'>
+    <a class='comment-link' expr:href='data:post.createLinkUrl' expr:id='data:widget.instanceId + &quot;_backlinks-create-link&quot;' target='_blank'><data:post.createLinkLabel/></a>
+  </p>
+</b:includable>
+    <b:includable id='comment-form' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <b:if cond='data:mobile'>
+      <h4 id='comment-post-message'>
+        <a expr:id='data:widget.instanceId + &quot;_comment-editor-toggle-link&quot;' href='javascript:void(0)'><data:postCommentMsg/></a></h4>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='210' id='comment-editor' name='comment-editor' src='' style='display: none' width='100%'/>
+    <b:else/>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='210' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    </b:if>
+    <data:post.friendConnectJs/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;, &#39;<data:post.communityId/>&#39;);
+    </script>
+  </div>
+</b:includable>
+    <b:includable id='commentDeleteIcon' var='comment'>
+  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+    <b:if cond='data:showCmtPopup'>
+      <div class='goog-toggle-button'>
+        <div class='goog-inline-block comment-action-icon'/>
+      </div>
+    <b:else/>
+      <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:top.deleteCommentMsg'>
+        <img src='//www.blogger.com/img/icon_delete13.gif'/>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+    <b:includable id='comment_count_picker' var='post'>
+  <b:if cond='data:post.forceIframeComments'>
+    <span class='cmt_count_iframe_holder' expr:data-count='data:post.numComments' expr:data-onclick='data:post.addCommentOnclick' expr:data-url='data:post.canonicalUrl'>
+    </span>
+  <b:else/>
+    <b:if cond='data:post.commentSource == 1'>
+      <span class='cmt_count_iframe_holder' expr:data-count='data:post.numComments' expr:data-onclick='data:post.addCommentOnclick' expr:data-url='data:post.canonicalUrl'>
+      </span>
+    <b:else/>
+      <a class='comment-link' expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
+        <data:post.commentLabelFull/>:
+      </a>
+    </b:if>
+  </b:if>
+</b:includable>
+    <b:includable id='comment_picker' var='post'>
+  <b:if cond='data:post.forceIframeComments'>
+    <b:include data='post' name='iframe_comments'/>
+    <b:if cond='data:post.showThreadedComments'>
+      <b:include data='post' name='threaded_comments'/>
+    <b:else/>
+      <b:include data='post' name='comments'/>
+    </b:if>
+  <b:else/>
+    <b:if cond='data:post.commentSource == 1'>
+      <b:include data='post' name='iframe_comments'/>
+    <b:else/>
+      <b:if cond='data:post.showThreadedComments'>
+        <b:include data='post' name='threaded_comments'/>
+      <b:else/>
+        <b:include data='post' name='comments'/>
+      </b:if>
+    </b:if>
+  </b:if>
+</b:includable>
+    <b:includable id='comments' var='post'>
+  <div class='comments' id='comments'>
+  <div class='clearfix' id='comment-wrap'>
+    <a name='comments'/>
+    <b:if cond='data:post.allowComments'>
+      <h4><span>
+        <b:if cond='data:post.numComments == 1'>
+          1 <data:commentLabel/>:
+        <b:else/>
+          <data:post.numComments/> <data:commentLabelPlural/>:
+        </b:if>
+        </span></h4>
+
+      <b:if cond='data:post.commentPagingRequired'>
+        <span class='paging-control-container'>
+          <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'><data:post.oldestLinkText/></a>
+          &#160;
+          <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'><data:post.olderLinkText/></a>
+          &#160;
+          <data:post.commentRangeText/>
+          &#160;
+          <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'><data:post.newerLinkText/></a>
+          &#160;
+          <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'><data:post.newestLinkText/></a>
+        </span>
+      </b:if>
+
+      <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
+        <div expr:class='data:post.avatarIndentClass' id='comments-block'>
+          <b:loop values='data:post.comments' var='comment'>
+            <div expr:class='&quot;comment-author &quot; + data:comment.authorClass' expr:id='data:comment.anchorName'>
+              <b:if cond='data:comment.favicon'>
+                <img expr:src='data:comment.favicon' height='16px' style='margin-bottom:-2px;' width='16px'/>
+              </b:if>
+              <a expr:name='data:comment.anchorName'/>
+              <b:if cond='data:blog.enabledCommentProfileImages'>
+                <data:comment.authorAvatarImage/>
+              </b:if>
+              <b:if cond='data:comment.authorUrl'>
+                <a expr:href='data:comment.authorUrl' rel='nofollow'><data:comment.author/></a>
+              <b:else/>
+                <data:comment.author/>
+              </b:if>
+              <data:commentPostedByMsg/>
+            </div>
+            <div class='comment-body' expr:id='data:widget.instanceId + data:comment.cmtBodyIdPostfix'>
+              <b:if cond='data:comment.isDeleted'>
+                <span class='deleted-comment'><data:comment.body/></span>
+              <b:else/>
+                <p>
+                  <data:comment.body/>
+                </p>
+              </b:if>
+            </div>
+            <div class='comment-footer'>
+              <span class='comment-timestamp'>
+                <a expr:href='data:comment.url' title='comment permalink'>
+                  <data:comment.timestamp/>
+                </a>
+                <b:include data='comment' name='commentDeleteIcon'/>
+              </span>
+            </div>
+          </b:loop>
+        </div>
+      </div>
+      
+      <b:if cond='data:post.commentPagingRequired'>
+        <span class='paging-control-container'>
+          <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
+            <data:post.oldestLinkText/>
+          </a>
+          <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
+            <data:post.olderLinkText/>
+          </a>
+          &#160;
+          <data:post.commentRangeText/>
+          &#160;
+          <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
+            <data:post.newerLinkText/>
+          </a>
+          <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
+            <data:post.newestLinkText/>
+          </a>
+        </span>
+      </b:if>
+
+      <p class='comment-footer'>
+        <b:if cond='data:post.embedCommentForm'>
+          <b:if cond='data:post.allowNewComments'>
+            <b:include data='post' name='comment-form'/>
+          <b:else/>
+            <data:post.noNewCommentsText/>
+          </b:if>
+        <b:else/>
+          <b:if cond='data:post.allowComments'>
+            <a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'><data:postCommentMsg/></a>
+          </b:if>
+        </b:if>
+
+      </p>
+    </b:if>
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='true' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+
+    <div id='backlinks-container'>
+    <div expr:id='data:widget.instanceId + &quot;_backlinks-container&quot;'>
+       <b:if cond='data:post.showBacklinks'>
+         <b:include data='post' name='backlinks'/>
+       </b:if>
+    </div>
+    </div>
+  </div>
+  </div>
+</b:includable>
+    <b:includable id='feedLinks'>
+  <b:if cond='data:blog.pageType != &quot;item&quot;'> <!-- Blog feed links -->
+    <b:if cond='data:feedLinks'>
+      <div class='blog-feeds'>
+        <b:include data='feedLinks' name='feedLinksBody'/>
+      </div>
+    </b:if>
+
+    <b:else/> <!--Post feed links -->
+    <div class='post-feeds'>
+      <b:loop values='data:posts' var='post'>
+        <b:if cond='data:post.allowComments'>
+          <b:if cond='data:post.feedLinks'>
+            <b:include data='post.feedLinks' name='feedLinksBody'/>
+          </b:if>
+        </b:if>
+      </b:loop>
+    </div>
+  </b:if>
+</b:includable>
+    <b:includable id='feedLinksBody' var='links'>
+  <div class='feed-links'>
+  <data:feedLinksMsg/>
+  <b:loop values='data:links' var='f'>
+     <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
+  </b:loop>
+  </div>
+</b:includable>
+    <b:includable id='iframe_comments' var='post'>
+
+  <b:if cond='data:post.allowIframeComments'>
+    <script expr:src='data:post.iframeCommentSrc' type='text/javascript'/>
+    <div class='cmt_iframe_holder'/>
+
+    <b:if cond='data:post.embedCommentForm == &quot;false&quot;'>
+      <a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'><data:postCommentMsg/></a>
+    </b:if>
+  </b:if>
+</b:includable>
+    <b:includable id='mobile-index-post' var='post'>
+  <div class='mobile-date-outer date-outer'>
+    <div class='mobile-post-outer'>
+      <a expr:href='data:post.url'>
+        <h3 class='mobile-index-title entry-title'>
+          <data:post.title/>
+        </h3>
+
+        <div class='mobile-index-arrow'>&amp;rsaquo;</div>
+
+        <div class='mobile-index-contents'>
+          <b:if cond='data:post.thumbnailUrl'>
+            <div class='mobile-index-thumbnail'>
+              <div class='Image'>
+                <img expr:src='data:post.thumbnailUrl'/>
+              </div>
+            </div>
+          </b:if>
+
+          <div class='post-body'>
+            <b:if cond='data:post.snippet'><data:post.snippet/></b:if>
+          </div>
+        </div>
+
+        <div style='clear: both;'/>
+      </a>
+
+      <div class='mobile-index-comment'>
+        <b:if cond='data:blog.pageType != &quot;static_page&quot;'>
+          <b:if cond='data:post.allowComments'>
+            <b:if cond='data:post.numComments != 0'>
+              <a class='comment-link' expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'><b:if cond='data:post.numComments == 1'>1 <data:top.commentLabel/><b:else/><data:post.numComments/> <data:top.commentLabelPlural/></b:if></a>
+            </b:if>
+          </b:if>
+        </b:if>
+      </div>
+    </div>
+  </div>
+</b:includable>
+    <b:includable id='mobile-main' var='top'>
+    <!-- posts -->
+    <div class='blog-posts hfeed'>
+      <b:include data='top' name='status-message'/>
+      <b:if cond='data:blog.pageType == &quot;index&quot;'>
+        <b:loop values='data:posts' var='post'>
+          <b:include data='post' name='mobile-index-post'/>
+        </b:loop>
+      <b:else/>
+        <b:loop values='data:posts' var='post'>
+          <b:include data='post' name='mobile-post'/>
+        </b:loop>
+      </b:if>
+    </div>
+
+   <b:include name='mobile-nextprev'/>
+</b:includable>
+    <b:includable id='mobile-nextprev'>
+  <div class='blog-pager' id='blog-pager'>
+    <b:if cond='data:newerPageUrl'>
+      <div class='mobile-link-button' id='blog-pager-newer-link'>
+      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>&amp;lsaquo;</a>
+      </div>
+    </b:if>
+
+    <b:if cond='data:olderPageUrl'>
+      <div class='mobile-link-button' id='blog-pager-older-link'>
+      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>&amp;rsaquo;</a>
+      </div>
+    </b:if>
+
+    <div class='mobile-link-button' id='blog-pager-home-link'>
+    <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+    </div>
+
+    <div class='mobile-desktop-link'>
+      <a class='home-link' expr:href='data:desktopLinkUrl'><data:desktopLinkMsg/></a>
+    </div>
+
+  </div>
+  <div class='clear'/>
+</b:includable>
+    <b:includable id='mobile-post' var='post'>
+  <div class='date-outer'>
+    <div class='date-posts'>
+      <div class='post-outer'>
+
+        <div class='post'>
+          <b:if cond='data:post.title'>
+            <h3 class='post-title'>
+              <b:if cond='data:post.link'>
+                <a expr:href='data:post.link'><data:post.title/></a>
+              <b:else/>
+                <b:if cond='data:post.url'>
+                  <b:if cond='data:blog.url != data:post.url'>
+                    <a expr:href='data:post.url'><data:post.title/></a>
+                  <b:else/>
+                    <data:post.title/>
+                  </b:if>
+                <b:else/>
+                  <data:post.title/>
+                </b:if>
+              </b:if>
+            </h3>
+          </b:if>
+
+          <div class='post-header'/>
+
+          <div class='post-body'>
+            <data:post.body/>
+            <div class='clear'/> 
+          </div>
+
+          <div class='post-footer'>
+            <div class='post-footer-line post-footer-line-1'>
+              <span class='post-author vcard'>
+                <b:if cond='data:top.showAuthor'>
+                  <b:if cond='data:post.authorProfileUrl'>
+                    <span class='fn'>
+                      <a expr:href='data:post.authorProfileUrl' rel='author' title='author profile'>
+                        <data:post.author/>
+                      </a>
+                    </span>
+                  <b:else/>
+                    <span class='fn'><data:post.author/></span>
+                  </b:if>
+                </b:if>
+              </span>
+
+              <span class='post-timestamp'>
+                <b:if cond='data:top.showTimestamp'>
+                  <data:top.timestampLabel/>
+                  <b:if cond='data:post.url'>
+                    <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'><abbr class='published' expr:title='data:post.timestampISO8601'><data:post.timestamp/></abbr></a>
+                  </b:if>
+                </b:if>
+              </span>
+
+              <span class='post-comment-link'>
+                <b:if cond='data:blog.pageType != &quot;item&quot;'>
+                  <b:if cond='data:blog.pageType != &quot;static_page&quot;'>
+                    <b:if cond='data:post.allowComments'>
+                      <a class='comment-link' expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'><b:if cond='data:post.numComments == 1'>1 <data:top.commentLabel/><b:else/><data:post.numComments/> <data:top.commentLabelPlural/></b:if></a>
+                    </b:if>
+                  </b:if>
+                </b:if>
+              </span>
+            </div>
+
+            <div class='post-footer-line post-footer-line-2'>
+              <b:if cond='data:top.showMobileShare'>
+                <div class='mobile-link-button goog-inline-block' id='mobile-share-button'>
+                  <a href='javascript:void(0);'><data:shareMsg/></a>
+                </div>
+              </b:if>
+              <b:if cond='data:top.showDummy'>
+                <div class='goog-inline-block dummy-container'><data:post.dummyTag/></div>
+              </b:if>
+            </div>
+
+          </div>
+        </div>
+
+        <b:if cond='data:blog.pageType != &quot;index&quot;'>
+          <b:if cond='data:post.showThreadedComments'>
+            <b:include data='post' name='threaded_comments'/>
+          <b:else/>
+            <b:include data='post' name='comments'/>
+          </b:if>
+        </b:if>
+
+      </div>
+    </div>
+  </div>
+</b:includable>
+    <b:includable id='nextprev'>
+  <div class='blog-pager' id='blog-pager'>
+    <b:if cond='data:newerPageUrl'>
+      <span id='blog-pager-newer-link'>
+      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><data:newerPageTitle/></a>
+      </span>
+    </b:if>
+	
+    <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+	
+    <b:if cond='data:olderPageUrl'>
+      <span id='blog-pager-older-link'>
+      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
+      </span>
+    </b:if>
+
+    <b:if cond='data:mobileLinkUrl'>
+      <div class='blog-mobile-link'>
+        <a expr:href='data:mobileLinkUrl'><data:mobileLinkMsg/></a>
+      </div>
+    </b:if>
+
+  </div>
+  <div class='clear'/>
+</b:includable>
+    <b:includable id='post' var='post'>
+<div class='main-product hentry'>
+<b:if cond='data:post.firstImageUrl'>
+<meta expr:content='data:post.firstImageUrl' expr:title='data:post.title' itemprop='image'/>
+</b:if>	
+<abbr class='published updated' expr:title='data:post.timestampISO8601' itemprop='datePublished' style='display: none'><data:post.timestamp/></abbr>
+<p itemprop='description' style='display: none'><data:post.snippet/></p>
+<b:if cond='data:blog.pageType == &quot;index&quot;'>
+<b:if cond='data:post.title'>
+<h3 itemprop='headline' style='display:none'>
+<b:if cond='data:post.link'>
+<a expr:href='data:post.link' expr:title='data:post.title'><data:post.title/></a>
+<b:else/>
+<b:if cond='data:post.url'>
+<a expr:href='data:post.url' expr:title='data:post.title'><data:post.title/></a>
+<b:else/><data:post.title/>
+</b:if>
+</b:if>
+</h3>
+</b:if>
+<b:else/>
+  <b:if cond='data:blog.pageType == &quot;archive&quot;'>
+    <b:if cond='data:post.title'>
+<h3 itemprop='headline' style='display:none'>
+<b:if cond='data:post.link'>
+<a expr:href='data:post.link' expr:title='data:post.title'><data:post.title/></a>
+<b:else/>
+<b:if cond='data:post.url'>
+<a expr:href='data:post.url' expr:title='data:post.title'><data:post.title/></a>
+<b:else/><data:post.title/>
+</b:if>
+</b:if>
+</h3>
+</b:if>
+    <b:else/>
+<h1 itemprop='headline'><b:if cond='data:post.link'><a expr:href='data:post.link' expr:title='data:post.title'><data:post.title/></a><b:else/><data:post.title/>
+</b:if></h1>
+</b:if>
+  </b:if>
+<!-- Rating Theme -->
+<div style='height: 1px; left: -1px; overflow: hidden; position: absolute; top: -1px; visibility: hidden; width: 1px; z-index: -100;'>
+<span itemprop='name'><data:post.title/></span>
+ <img alt='' expr:src='data:post.thumbnailUrl' itemprop='image'/>
+<p itemprop='description'><data:blog.metaDescription/></p><p itemprop='keywords'><data:blog.pageName/></p>
+<div>
+<span itemprop='ratingValue'>8</span> <span itemprop='bestRating'>10</span><span itemprop='ratingCount'>
+99</span>
+ </div>
+</div>
+<b:if cond='data:blog.pageType == &quot;index&quot;'>
+  <span expr:id='&quot;p&quot; + data:post.id'><data:post.body/></span>
+  <script type='text/javascript'>var x=&quot;<data:post.title/>&quot;,y=&quot;<data:post.url/>&quot;;readmore(&quot;p<data:post.id/>&quot;)</script><b:else/>
+  <b:if cond='data:blog.pageType == &quot;archive&quot;'>
+   <span expr:id='&quot;p&quot; + data:post.id'><data:post.body/></span>
+  <script type='text/javascript'>var x=&quot;<data:post.title/>&quot;,y=&quot;<data:post.url/>&quot;;readmore(&quot;p<data:post.id/>&quot;)</script><b:else/>
+  <data:post.body/></b:if>
+  </b:if>
+<div class='clear'/>
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
+<div class='share-box'>
+ 
+          <h8 class='share-title'>Share This:</h8>
+               <div class='share-art'> 
+<a class='fac-art' expr:href='&quot;http://www.facebook.com/sharer.php?u=&quot; + data:post.url + &quot;&amp;title=&quot;+ data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=600, height=400, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' target='_blank'><i class='fa fa-facebook'/><span class='resp_del'> Facebook</span></a>
+
+<a class='twi-art' expr:href='&quot;http://twitter.com/share?url=&quot; + data:post.url + &quot;&amp;title=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=600, height=400, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' target='_blank'><i class='fa fa-twitter'/><span class='resp_del2'> Twitter</span></a>
+
+<a class='pin-art' expr:href='&quot;http://pinterest.com/pin/create/button/?url=&quot; + data:post.url + &quot;&amp;media=&quot; + data:post.firstImageUrl + &quot;&amp;description=&quot; + data:post.snippet' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=600, height=400, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' target='_blank'><i class='fa fa-pinterest'/><span class='resp_del4'> Pinterest</span></a>  
+
+<a class='lin-art' expr:href='&quot;http://www.linkedin.com/shareArticle?url=&quot; + data:post.url + &quot;&amp;title=&quot;+ data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=600, height=400, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' target='_blank'><i class='fa fa-linkedin-square'/><span class='resp_del5'> Linkedin</span></a>
+
+<whatsapp expr:href='data:post.url' expr:src='data:post.firstImageUrl' expr:text='data:post.title'/>
+<a class='wat-art whatsapp-desktop' expr:href='&quot;https://web.whatsapp.com/send?text=&quot; + data:post.title + &quot; | &quot; + data:post.url' rel='nofollow' target='_blank'><i class='fa fa-whatsapp'/><span class='resp_del5'> Whatsapp</span></a>
+<a class='wat-art' expr:href='&quot;https://api.whatsapp.com/send?text=&quot; + data:post.title + &quot; | &quot; + data:post.url' rel='nofollow' target='_blank'><i class='fa fa-whatsapp'/><span class='resp_del5'> Whatsapp</span></a>
+
+</div>
+      <div style='clear:both'/> 
+         </div>
+                 
+</b:if>
+</div>
+</b:includable>
+    <b:includable id='post-404'>
+					<div class='post-404'>                        
+                        <div class='actions-404'>	
+                          <div class='ops-404'><span>Ops;</span> Sorry, but the page you were trying to view does not exist.
+                        </div>					
+                        <div class='title-404'>404</div>
+						<div class='link-404'>
+							<a href='/'><i class='fa fa-car'/> <trans>Back to Home</trans></a>
+						</div></div>
+					</div>
+	</b:includable>
+    <b:includable id='postQuickEdit' var='post'>
+  <b:if cond='data:post.editUrl'>
+    <span expr:class='&quot;item-control &quot; + data:post.adminClass'>
+      <a expr:href='data:post.editUrl' expr:title='data:top.editPostMsg'>
+        <img alt='' class='icon-action' height='18' src='http://img2.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+      </a>
+    </span>
+  </b:if>
+</b:includable>
+    <b:includable id='shareButtons' var='post'>
+  <b:if cond='data:top.showEmailButton'><a class='goog-inline-block share-button sb-email' expr:href='data:post.sharePostUrl + &quot;&amp;target=email&quot;' expr:title='data:top.emailThisMsg' target='_blank'><span class='share-button-link-text'><data:top.emailThisMsg/></span></a></b:if><b:if cond='data:top.showBlogThisButton'><a class='goog-inline-block share-button sb-blog' expr:href='data:post.sharePostUrl + &quot;&amp;target=blog&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' expr:title='data:top.blogThisMsg' target='_blank'><span class='share-button-link-text'><data:top.blogThisMsg/></span></a></b:if><b:if cond='data:top.showTwitterButton'><a class='goog-inline-block share-button sb-twitter' expr:href='data:post.sharePostUrl + &quot;&amp;target=twitter&quot;' expr:title='data:top.shareToTwitterMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToTwitterMsg/></span></a></b:if><b:if cond='data:top.showFacebookButton'><a class='goog-inline-block share-button sb-facebook' expr:href='data:post.sharePostUrl + &quot;&amp;target=facebook&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToFacebookMsg/></span></a></b:if><b:if cond='data:top.showOrkutButton'><a class='goog-inline-block share-button sb-orkut' expr:href='data:post.sharePostUrl + &quot;&amp;target=orkut&quot;' expr:title='data:top.shareToOrkutMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToOrkutMsg/></span></a></b:if><b:if cond='data:top.showDummy'><div class='goog-inline-block dummy-container'><data:post.dummyTag/></div></b:if>
+</b:includable>
+    <b:includable id='status-message'>
+  <b:if cond='data:navMessage'>
+  <div class='status-msg-wrap'>
+    <div class='status-msg-body'>
+      <data:navMessage/>
+    </div>
+  </div>
+  <div class='clear'/>
+  </b:if>
+</b:includable>
+    <b:includable id='threaded-comment-form' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <b:if cond='data:mobile'>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='210' id='comment-editor' name='comment-editor' src='' style='display: none' width='100%'/>
+    <b:else/>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='210' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    </b:if>
+    <data:post.friendConnectJs/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;, &#39;<data:post.communityId/>&#39;);
+    </script>
+  </div>
+</b:includable>
+    <b:includable id='threaded_comment_js' var='post'>
+  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+
+  <script type='text/javascript'>
+    (function() {
+      var items = <data:post.commentJso/>;
+      var msgs = <data:post.commentMsgs/>;
+      var config = <data:post.commentConfig/>;
+
+// <![CDATA[
+      var cursor = null;
+      if (items && items.length > 0) {
+        cursor = parseInt(items[items.length - 1].timestamp) + 1;
+      }
+
+      var bodyFromEntry = function(entry) {
+        if (entry.gd$extendedProperty) {
+          for (var k in entry.gd$extendedProperty) {
+            if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
+              return '<span class="deleted-comment">' + entry.content.$t + '</span>';
+            }
+          }
+        }
+        return entry.content.$t;
+      }
+
+      var parse = function(data) {
+        cursor = null;
+        var comments = [];
+        if (data && data.feed && data.feed.entry) {
+          for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+            var comment = {};
+            // comment ID, parsed out of the original id format
+            var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
+            comment.id = id ? id[2] : null;
+            comment.body = bodyFromEntry(entry);
+            comment.timestamp = Date.parse(entry.published.$t) + '';
+            if (entry.author && entry.author.constructor === Array) {
+              var auth = entry.author[0];
+              if (auth) {
+                comment.author = {
+                  name: (auth.name ? auth.name.$t : undefined),
+                  profileUrl: (auth.uri ? auth.uri.$t : undefined),
+                  avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
+                };
+              }
+            }
+            if (entry.link) {
+              if (entry.link[2]) {
+                comment.link = comment.permalink = entry.link[2].href;
+              }
+              if (entry.link[3]) {
+                var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
+                if (pid && pid[1]) {
+                  comment.parentId = pid[1];
+                }
+              }
+            }
+            comment.deleteclass = 'item-control blog-admin';
+            if (entry.gd$extendedProperty) {
+              for (var k in entry.gd$extendedProperty) {
+                if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
+                  comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
+                }
+              }
+            }
+            comments.push(comment);
+          }
+        }
+        return comments;
+      };
+
+      var paginator = function(callback) {
+        if (hasMore()) {
+          var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+          if (cursor) {
+            url += '&published-min=' + new Date(cursor).toISOString();
+          }
+          window.bloggercomments = function(data) {
+            var parsed = parse(data);
+            cursor = parsed.length < 50 ? null
+                : parseInt(parsed[parsed.length - 1].timestamp) + 1
+            callback(parsed);
+            window.bloggercomments = null;
+          }
+          url += '&callback=bloggercomments';
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = url;
+          document.getElementsByTagName('head')[0].appendChild(script);
+        }
+      };
+      var hasMore = function() {
+        return !!cursor;
+      };
+      var getMeta = function(key, comment) {
+        if ('iswriter' == key) {
+          var matches = !!comment.author
+              && comment.author.name == config.authorName
+              && comment.author.profileUrl == config.authorUrl;
+          return matches ? 'true' : '';
+        } else if ('deletelink' == key) {
+          return config.baseUri + '/delete-comment.g?blogID='
+               + config.blogId + '&postID=' + comment.id;
+        } else if ('deleteclass' == key) {
+          return comment.deleteclass;
+        }
+        return '';
+      };
+
+      var replybox = null;
+      var replyUrlParts = null;
+      var replyParent = undefined;
+
+      var onReply = function(commentId, domId) {
+        if (replybox == null) {
+          // lazily cache replybox, and adjust to suit this style:
+          replybox = document.getElementById('comment-editor');
+          if (replybox != null) {
+            replybox.height = '210px';
+            replybox.style.display = 'block';
+            replyUrlParts = replybox.src.split('#');
+          }
+        }
+        if (replybox && (commentId !== replyParent)) {
+          document.getElementById(domId).insertBefore(replybox, null);
+          replybox.src = replyUrlParts[0]
+              + (commentId ? '&parentID=' + commentId : '')
+              + '#' + replyUrlParts[1];
+          replyParent = commentId;
+        }
+      };
+
+      var hash = (window.location.hash || '#').substring(1);
+      var startThread, targetComment;
+      if (/^comment-form_/.test(hash)) {
+        startThread = hash.substring('comment-form_'.length);
+      } else if (/^c[0-9]+$/.test(hash)) {
+        targetComment = hash.substring(1);
+      }
+
+      // Configure commenting API:
+      var configJso = {
+        'maxDepth': config.maxThreadDepth
+      };
+      var provider = {
+        'id': config.postId,
+        'data': items,
+        'loadNext': paginator,
+        'hasMore': hasMore,
+        'getMeta': getMeta,
+        'onReply': onReply,
+        'rendered': true,
+        'initComment': targetComment,
+        'initReplyThread': startThread,
+        'config': configJso,
+        'messages': msgs
+      };
+
+      var render = function() {
+        if (window.goog && window.goog.comments) {
+          var holder = document.getElementById('comment-holder');
+          window.goog.comments.render(holder, provider);
+        }
+      };
+
+      // render now, or queue to render when library loads:
+      if (window.goog && window.goog.comments) {
+        render();
+      } else {
+        window.goog = window.goog || {};
+        window.goog.comments = window.goog.comments || {};
+        window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
+        window.goog.comments.loadQueue.push(render);
+      }
+    })();
+// ]]>
+  </script>
+</b:includable>
+    <b:includable id='threaded_comments' var='post'>
+  <div class='comments' id='comments'>
+  <div class='clearfix' id='comment-wrap'>
+    <a name='comments'/>
+    <h4><span><data:post.commentLabelFull/></span></h4>
+
+    <div class='comments-content'>
+      <b:if cond='data:post.embedCommentForm'>
+        <b:include data='post' name='threaded_comment_js'/>
+      </b:if>
+      <div id='comment-holder'>
+         <data:post.commentHtml/>
+      </div>
+    </div>
+
+    <p class='comment-footer'>
+      <b:if cond='data:post.allowNewComments'>
+        <b:include data='post' name='threaded-comment-form'/>
+      <b:else/>
+        <data:post.noNewCommentsText/>
+      </b:if>
+    </p>
+
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='true' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+
+    <div id='backlinks-container'>
+    <div expr:id='data:widget.instanceId + &quot;_backlinks-container&quot;'>
+       <b:if cond='data:post.showBacklinks'>
+         <b:include data='post' name='backlinks'/>
+       </b:if>
+    </div>
+    </div>
+    </div>
+  </div>
+</b:includable>
+  </b:widget>
+</b:section>
+</div>
+</div>
+
+<div id='sidebar-wrapper' itemscope='itemscope' itemtype='http://schema.org/WPSideBar'>
+<b:section class='sidebar' id='sidebar' preferred='yes'>
+  <b:widget id='Label1' locked='false' title='Labels' type='Label' version='1'>
+    <b:widget-settings>
+      <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+      <b:widget-setting name='display'>LIST</b:widget-setting>
+      <b:widget-setting name='selectedLabelsList'/>
+      <b:widget-setting name='showType'>ALL</b:widget-setting>
+      <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <b:if cond='data:title'>
+    <h2><data:title/></h2>
+  </b:if>
+  <div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
+    <b:if cond='data:display == &quot;list&quot;'>
+      <ul>
+      <b:loop values='data:labels' var='label'>
+        <li>
+          <b:if cond='data:blog.url == data:label.url'>
+            <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
+          <b:else/>
+            <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
+          </b:if>
+        </li>
+      </b:loop>
+      </ul>
+    <b:else/>
+      <b:loop values='data:labels' var='label'>
+        <span expr:class='&quot;label-size label-size-&quot; + data:label.cssSize'>
+          <b:if cond='data:blog.url == data:label.url'>
+            <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
+          <b:else/>
+            <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
+          </b:if>
+          <b:if cond='data:showFreqNumbers'>
+            <span class='label-count' dir='ltr'>(<data:label.count/>)</span>
+          </b:if>
+        </span>
+      </b:loop>
+    </b:if>
+    <b:include name='quickedit'/>
+  </div>
+</b:includable>
+  </b:widget>
+</b:section>
+</div>
+
+<div class='clear'/>
+</div>
+</div>
+</div>
+</div>
+
+<div id='footer'>
+<div id='footer-top-bg'>
+<div id='footer-bottom-bg'>
+<div class='container'>
+<div class='clearfix' id='footer-widgets'>
+<b:section class='footer-widget' id='column1' preferred='yes'>
+  <b:widget id='Text1' locked='false' title='About us' type='Text'>
+    <b:widget-settings>
+      <b:widget-setting name='content'>Sed arcu lectus, consectetur at auctor et, dictum eget urna. In  porttitor felis at lectus feugiat non suscipit est pretium. Sed  fermentum ultrices mauris eget porta. Sed id magna erat.</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <!-- only display title if it's non-empty -->
+  <b:if cond='data:title != &quot;&quot;'>
+    <h2 class='title'><data:title/></h2>
+  </b:if>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+
+  <b:include name='quickedit'/>
+</b:includable>
+  </b:widget>
+</b:section>
+<b:section class='footer-widget' id='column2' preferred='yes'>
+  <b:widget id='Label2' locked='false' title='Tags' type='Label' version='1'>
+    <b:widget-settings>
+      <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+      <b:widget-setting name='display'>LIST</b:widget-setting>
+      <b:widget-setting name='selectedLabelsList'/>
+      <b:widget-setting name='showType'>ALL</b:widget-setting>
+      <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <b:if cond='data:title'>
+    <h2><data:title/></h2>
+  </b:if>
+  <div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
+    <b:if cond='data:display == &quot;list&quot;'>
+      <ul>
+      <b:loop values='data:labels' var='label'>
+        <li>
+          <b:if cond='data:blog.url == data:label.url'>
+            <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
+          <b:else/>
+            <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
+          </b:if>
+          <b:if cond='data:showFreqNumbers'>
+            <span dir='ltr'>(<data:label.count/>)</span>
+          </b:if>
+        </li>
+      </b:loop>
+      </ul>
+    <b:else/>
+      <b:loop values='data:labels' var='label'>
+        <span expr:class='&quot;label-size label-size-&quot; + data:label.cssSize'>
+          <b:if cond='data:blog.url == data:label.url'>
+            <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
+          <b:else/>
+            <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
+          </b:if>
+          <b:if cond='data:showFreqNumbers'>
+            <span class='label-count' dir='ltr'>(<data:label.count/>)</span>
+          </b:if>
+        </span>
+      </b:loop>
+    </b:if>
+    <b:include name='quickedit'/>
+  </div>
+</b:includable>
+  </b:widget>
+</b:section>
+<b:section class='footer-widget' id='column3' preferred='yes'>
+  <b:widget id='LinkList1' locked='false' title='Link List' type='LinkList' version='1'>
+    <b:widget-settings>
+      <b:widget-setting name='link-3'>http://boutique-soratemplates.blogspot.com/</b:widget-setting>
+      <b:widget-setting name='sorting'>NONE</b:widget-setting>
+      <b:widget-setting name='text-1'>Entries RSS</b:widget-setting>
+      <b:widget-setting name='link-1'>http://boutique-soratemplates.blogspot.com/</b:widget-setting>
+      <b:widget-setting name='text-0'>Log in</b:widget-setting>
+      <b:widget-setting name='link-2'>http://boutique-soratemplates.blogspot.com/</b:widget-setting>
+      <b:widget-setting name='text-3'>Blogger.com</b:widget-setting>
+      <b:widget-setting name='link-0'>http://boutique-soratemplates.blogspot.com/</b:widget-setting>
+      <b:widget-setting name='text-2'>Comment RSS</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+
+<b:if cond='data:title'><h2><data:title/></h2></b:if>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+   <b:include name='quickedit'/>
+ </div>
+</b:includable>
+  </b:widget>
+</b:section>
+<b:section class='footer-widget' id='column4' preferred='yes'>
+  <b:widget id='Label3' locked='false' title='Categories' type='Label' version='1'>
+    <b:widget-settings>
+      <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+      <b:widget-setting name='display'>LIST</b:widget-setting>
+      <b:widget-setting name='selectedLabelsList'/>
+      <b:widget-setting name='showType'>ALL</b:widget-setting>
+      <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <b:if cond='data:title'>
+    <h2><data:title/></h2>
+  </b:if>
+  <div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
+    <b:if cond='data:display == &quot;list&quot;'>
+      <ul>
+      <b:loop values='data:labels' var='label'>
+        <li>
+          <b:if cond='data:blog.url == data:label.url'>
+            <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
+          <b:else/>
+            <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
+          </b:if>
+          <b:if cond='data:showFreqNumbers'>
+            <span dir='ltr'>(<data:label.count/>)</span>
+          </b:if>
+        </li>
+      </b:loop>
+      </ul>
+    <b:else/>
+      <b:loop values='data:labels' var='label'>
+        <span expr:class='&quot;label-size label-size-&quot; + data:label.cssSize'>
+          <b:if cond='data:blog.url == data:label.url'>
+            <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
+          <b:else/>
+            <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
+          </b:if>
+          <b:if cond='data:showFreqNumbers'>
+            <span class='label-count' dir='ltr'>(<data:label.count/>)</span>
+          </b:if>
+        </span>
+      </b:loop>
+    </b:if>
+    <b:include name='quickedit'/>
+  </div>
+</b:includable>
+  </b:widget>
+</b:section>
+<div class='clear'/>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id='footer-bottom' itemscope='itemscope' itemtype='https://sagartechnicalcener.blogspot.com/'>
+<div class='container clearfix'>
+ <p>Created By <a href='https://sagartechnicalcener.blogspot.com/' id='mycontent' rel='dofollow' title='Blogger'>Sagardgs</a> | Distributed By <a href='https://sagartechnicalcener.blogspot.com/' rel='dofollow' style='color:#ff00ba;' target='_blank' title='Sagar sk'>SagarDGS</a>
+</p>
+</div>
+</div>
+<div id='bottom-color-stripes'/>
+
+ <script type='text/javascript'>
+      //<![CDATA[
+      window.selectnav=function(){return function(p,q){var a,h=function(b){var c;b||(b=window.event);b.target?c=b.target:b.srcElement&&(c=b.srcElement);3===c.nodeType&&(c=c.parentNode);c.value&&(window.location.href=c.value)},k=function(b){b=b.nodeName.toLowerCase();return"ul"===b||"ol"===b},l=function(b){for(var c=1;document.getElementById("selectnav"+c);c++){}return b?"selectnav"+c:"selectnav"+(c-1)},n=function(b){g++;var c=b.children.length,a="",d="",f=g-1;if(c){if(f){for(;f--;){d+=r}d+=" "}for(f=0;f<c;f++){var e=b.children[f].children[0];if("undefined"!==typeof e){var h=e.innerText||e.textContent,i="";j&&(i=-1!==e.className.search(j)||-1!==e.parentElement.className.search(j)?m:"");s&&!i&&(i=e.href===document.URL?m:"");a+='<option value="'+e.href+'" '+i+">"+d+h+"</option>";t&&(e=b.children[f].children[1])&&k(e)&&(a+=n(e))}}1===g&&o&&(a='<option value="">'+o+"</option>"+a);1===g&&(a='<select class="selectnav" id="'+l(!0)+'">'+a+"</select>");g--;return a}};if((a=document.getElementById(p))&&k(a)){document.documentElement.className+=" js";var d=q||{},j=d.activeclass||"active1",s="boolean"===typeof d.autoselect?d.autoselect:!0,t="boolean"===typeof d.nested?d.nested:!0,r=d.indent||"\u2192",o=d.label||"- Navigation -",g=0,m=" selected ";a.insertAdjacentHTML("afterend",n(a));a=document.getElementById(l());a.addEventListener&&a.addEventListener("change",h);a.attachEvent&&a.attachEvent("onchange",h)}}}();(jQuery);
+      //]]></script>
+    <!--Menu To Drop Down Started-->
+    <script type='text/javascript'>
+      //<![CDATA[
+      $(document).ready(function(){
+        selectnav('top-menu', {
+          label: 'Select Here ',
+          nested: true,
+          autoselect: false,
+          indent: '-'
+        });
+      });
+$(document).ready(function(){
+        selectnav('secondary-menu', {
+          label: 'Select Here ',
+          nested: true,
+          autoselect: false,
+          indent: '-'
+        });
+      });
+      //]]></script>
+<script type='text/javascript'>//<![CDATA[
+var posts=12,
+    num=2,
+    previous="&#171;",
+    next="&#187;";
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('E G="/",C=4E.1y,H,D,B,F;I();A 4F(a){E b="";2J=1h(36/2);9(2J==36-2J)36=2J*2+1;2K=B-2J;9(2K<1)2K=1;21=1h(a/1z)+1;9(21-1==a/1z)21=21-1;37=2K+36-1;9(37>21)37=21;b+="<2u 2L=\'6k\'>6l "+B+" 4G "+21+"</2u>";E c=1h(B)-1;9(B>1)9(B==2)9(D=="2h")b+=\'<a 1y="\'+G+\'">\'+38+"</a>";S b+=\'<a 1y="/1T/22/\'+F+"?&1u-1U="+1z+\'">\'+38+"</a>";S 9(D=="2h")b+=\'<a 1y="#" 2v="39(\'+c+\');J T">\'+38+"</a>";S b+=\'<a 1y="#" 2v="3a(\'+c+\');J T">\'+38+"</a>";1A(E d=2K;d<=37;d++)9(B==d)b+=\'<2u 2L="6m">\'+d+"</2u>";S 9(d==1)9(D=="2h")b+=\'<a 1y="\'+G+\'">1</a>\';S b+=\'<a 1y="/1T/22/\'+F+"?&1u-1U="+1z+\'">1</a>\';S 9(D=="2h")b+=\'<a 1y="#" 2v="39(\'+d+\');J T">\'+d+"</a>";S b+=\'<a 1y="#" 2v="3a(\'+d+\');J T">\'+d+"</a>";E e=1h(B)+1;9(B<21)9(D=="2h")b+=\'<a 1y="#" 2v="39(\'+e+\');J T">\'+1g+"</a>";S b+=\'<a 1y="#" 2v="3a(\'+e+\');J T">\'+1g+"</a>";E f=1V.6n("6o");E g=1V.4H("6p-1M");1A(E p=0;p<f.W;p++)f[p].4I=b;9(f&&f.W>0)b="";9(g)g.4I=\'<2M 2L="6q">\'+b+"</2M>"}A 3N(a){E b=a.4J;E c=1h(b.6r$6s.$t,10);4F(c)}A I(){E a=C;9(a.1q("/1T/22/")!=-1)9(a.1q("?3b-1u")!=-1)F=a.2w(a.1q("/1T/22/")+14,a.1q("?3b-1u"));S F=a.2w(a.1q("/1T/22/")+14,a.1q("?&1u"));9(a.1q("?q=")==-1&&a.1q(".4K")==-1)9(a.1q("/1T/22/")==-1){D="2h";9(C.1q("#2x=")!=-1)B=C.2w(C.1q("#2x=")+8,C.W);S B=1;1V.4L(\'<1N 24="\'+G+\'3c/1z/3d?1u-1U=1&3e=3f-2N-1N&3g=3N">\\4M/1N>\')}S{D="22";9(a.1q("&1u-1U=")==-1)1z=20;9(C.1q("#2x=")!=-1)B=C.2w(C.1q("#2x=")+8,C.W);S B=1;1V.4L(\'<1N 24="\'+G+"3c/1z/3d/-/"+F+\'?3e=3f-2N-1N&3g=3N&1u-1U=1" >\\4M/1N>\')}}A 39(a){3h=(a-1)*1z;H=a;E b=1V.3O("4N")[0];E c=1V.4O("1N");c.4P="4Q/4R";c.4S("24",G+"3c/1z/3d?4T-2i="+3h+"&1u-1U=1&3e=3f-2N-1N&3g=3P");b.4U(c)}A 3a(a){3h=(a-1)*1z;H=a;E b=1V.3O("4N")[0];E c=1V.4O("1N");c.4P="4Q/4R";c.4S("24",G+"3c/1z/3d/-/"+F+"?4T-2i="+3h+"&1u-1U=1&3e=3f-2N-1N&3g=3P");b.4U(c)}A 3P(a){3Q=a.4J.6t[0];E b=3Q.4V.$t.2w(0,19)+3Q.4V.$t.2w(23,29);E c=6u(b);9(D=="2h")E d="/1T?3b-1u="+c+"&1u-1U="+1z+"#2x="+H;S E d="/1T/22/"+F+"?3b-1u="+c+"&1u-1U="+1z+"#2x="+H;4E.1y=d}1b.1I.6v=1b.1I.4W;1b.1F(1b.1I,{4X:"4Y",4W:A(x,t,b,c,d){J 1b.1I[1b.1I.4X](x,t,b,c,d)},6w:A(x,t,b,c,d){J c*(t/=d)*t+b},4Y:A(x,t,b,c,d){J-c*(t/=d)*(t-2)+b},6x:A(x,t,b,c,d){9((t/=d/2)<1)J c/2*t*t+b;J-c/2*(--t*(t-2)-1)+b},6y:A(x,t,b,c,d){J c*(t/=d)*t*t+b},6z:A(x,t,b,c,d){J c*((t=t/d-1)*t*t+1)+b},6A:A(x,t,b,c,d){9((t/=d/2)<1)J c/2*t*t*t+b;J c/2*((t-=2)*t*t+2)+b},6B:A(x,t,b,c,d){J c*(t/=d)*t*t*t+b},6C:A(x,t,b,c,d){J-c*((t=t/d-1)*t*t*t-1)+b},6D:A(x,t,b,c,d){9((t/=d/2)<1)J c/2*t*t*t*t+b;J-c/2*((t-=2)*t*t*t-2)+b},6E:A(x,t,b,c,d){J c*(t/=d)*t*t*t*t+b},6F:A(x,t,b,c,d){J c*((t=t/d-1)*t*t*t*t+1)+b},6G:A(x,t,b,c,d){9((t/=d/2)<1)J c/2*t*t*t*t*t+b;J c/2*((t-=2)*t*t*t*t+2)+b},6H:A(x,t,b,c,d){J-c*12.4Z(t/d*(12.1O/2))+c+b},6I:A(x,t,b,c,d){J c*12.2O(t/d*(12.1O/2))+b},6J:A(x,t,b,c,d){J-c/2*(12.4Z(12.1O*t/d)-1)+b},6K:A(x,t,b,c,d){J t==0?b:c*12.25(2,10*(t/d-1))+b},6L:A(x,t,b,c,d){J t==d?b+c:c*(-12.25(2,-10*t/d)+1)+b},6M:A(x,t,b,c,d){9(t==0)J b;9(t==d)J b+c;9((t/=d/2)<1)J c/2*12.25(2,10*(t-1))+b;J c/2*(-12.25(2,-10*--t)+2)+b},6N:A(x,t,b,c,d){J-c*(12.3i(1-(t/=d)*t)-1)+b},6O:A(x,t,b,c,d){J c*12.3i(1-(t=t/d-1)*t)+b},6P:A(x,t,b,c,d){9((t/=d/2)<1)J-c/2*(12.3i(1-t*t)-1)+b;J c/2*(12.3i(1-(t-=2)*t)+1)+b},6Q:A(x,t,b,c,d){E s=1.2y;E p=0;E a=c;9(t==0)J b;9((t/=d)==1)J b+c;9(!p)p=d*0.3;9(a<12.3R(c)){a=c;E s=p/4}S E s=p/(2*12.1O)*12.3S(c/a);J-(a*12.25(2,10*(t-=1))*12.2O((t*d-s)*(2*12.1O)/p))+b},6R:A(x,t,b,c,d){E s=1.2y;E p=0;E a=c;9(t==0)J b;9((t/=d)==1)J b+c;9(!p)p=d*0.3;9(a<12.3R(c)){a=c;E s=p/4}S E s=p/(2*12.1O)*12.3S(c/a);J a*12.25(2,-10*t)*12.2O((t*d-s)*(2*12.1O)/p)+c+b},6S:A(x,t,b,c,d){E s=1.2y;E p=0;E a=c;9(t==0)J b;9((t/=d/2)==2)J b+c;9(!p)p=d*0.6T;9(a<12.3R(c)){a=c;E s=p/4}S E s=p/(2*12.1O)*12.3S(c/a);9(t<1)J-0.5*(a*12.25(2,10*(t-=1))*12.2O((t*d-s)*(2*12.1O)/p))+b;J a*12.25(2,-10*(t-=1))*12.2O((t*d-s)*(2*12.1O)/p)*0.5+c+b},6U:A(x,t,b,c,d,s){9(s==26)s=1.2y;J c*(t/=d)*t*((s+1)*t-s)+b},6V:A(x,t,b,c,d,s){9(s==26)s=1.2y;J c*((t=t/d-1)*t*((s+1)*t+s)+1)+b},6W:A(x,t,b,c,d,s){9(s==26)s=1.2y;9((t/=d/2)<1)J c/2*(t*t*(((s*=1.50)+1)*t-s))+b;J c/2*((t-=2)*t*(((s*=1.50)+1)*t+s)+2)+b},51:A(x,t,b,c,d){J c-1b.1I.3T(x,d-t,0,c,d)+b},3T:A(x,t,b,c,d){9((t/=d)<0.6X)J c*(7.3j*t*t)+b;S 9(t<0.6Y)J c*(7.3j*(t-=0.6Z)*t+0.75)+b;S 9(t<0.70)J c*(7.3j*(t-=0.71)*t+0.72)+b;S J c*(7.3j*(t-=0.73)*t+0.74)+b},76:A(x,t,b,c,d){9(t<d/2)J 1b.1I.51(x,t*2,0,c,d)*0.5+b;J 1b.1I.3T(x,t*2-d,0,c,d)*0.5+c*0.5+b}});(A($){E x="2.65";9($.2j==26)$.2j={1f:!$.2k.3k};A 1t(){9(3U.3V&&3U.3V.1t)3U.3V.1t("[K] "+77.78.2l.1P(79," "))}$.L.K=A(e,f){E o={s:M.52,c:M.7a};9(M.W==0&&e!="2P"){9(!$.53&&o.s){1t("54 1l 55, 7b 3l");$(A(){$(o.s,o.c).K(e,f)});J M}1t("3m; 7c 1Q 3W 7d 52"+($.53?"":" (54 1l 55)"));J M}J M.1j(A(){e=56(M,e,f);9(e===T)J;9(M.1i)27(M.1i);M.1i=M.1R=0;E a=$(M);E b=e.3X?$(e.3X,M):a.3n();E c=b.7e();9(c.W<2){1t("3m; 7f 7g 3Y: "+c.W);J}E d=57(a,b,c,e,o);9(d===T)J;9(d.1m||d.2z)M.1i=2Q(A(){2a(c,d,0,!d.2b)},d.2z?10:d.1m+(d.2R||0))})};A 56(a,b,c){9(a.2m==26)a.2m=0;9(b===26||b===1d)b={};9(b.3Z==58)7h(b){40"2P":a.2m++;9(a.1i)27(a.1i);a.1i=0;$(a).7i("K.3o");J T;40"41":a.1R=1;J T;40"59":a.1R=0;9(c===U){b=$(a).3p("K.3o");9(!b){1t("5a 1l 3W, 5b 1l 59");J T}9(a.1i){27(a.1i);a.1i=0}2a(b.1Q,b,1,1)}J T;7j:b={1v:b}}S 9(b.3Z==7k){E d=b;b=$(a).3p("K.3o");9(!b){1t("5a 1l 3W, 5b 1l 2A 3q");J T}9(d<0||d>=b.1Q.W){1t("7l 3q 2i: "+d);J T}b.1e=d;9(a.1i){27(a.1i);a.1i=0}9(5c c=="7m")b.3r=c;2a(b.1Q,b,1,d>=b.1n);J T}J b}A 43(a,b){9(!$.2j.1f&&(b.2S&&a.5d.3s))7n{a.5d.7o("3s")}7p(7q){}}A 57(f,g,j,k,o){E l=$.1F({},$.L.K.3t,k||{},$.5e?f.5e():$.7r?f.3p():{});9(l.44)l.45=l.46||j.W;E m=f[0];f.3p("K.3o",l);l.$2c=f;l.3u=m.2m;l.1Q=j;l.11=l.11?[l.11]:[];l.1o=l.1o?[l.1o]:[];l.1o.3v(A(){l.2T=0});9(!$.2j.1f&&l.2S)l.1o.Y(A(){43(M,l)});9(l.2z)l.1o.Y(A(){2a(j,l,0,!l.2b)});5f(l);9(!$.2j.1f&&(l.2S&&!l.47))48(g);9(f.X("3w")=="7s")f.X("3w","7t");9(l.R)f.R(l.R);9(l.Q&&l.Q!="3x")f.Q(l.Q);9(l.1B)l.1B=1h(l.1B);9(l.1J){l.2d=[];1A(E i=0;i<j.W;i++)l.2d.Y(i);l.2d.7u(A(a,b){J 12.1J()-0.5});l.1r=0;l.1B=l.2d[0]}S 9(l.1B>=j.W)l.1B=0;l.1n=l.1B=l.1B||0;E n=l.1B;g.X({3w:"5g",O:0,N:0}).1W().1j(A(i){E z=n?i>=n?j.W-(i-n):n-i:j.W-i;$(M).X("z-2i",z)});$(j[n]).X("1f",1).2B();43(j[n],l);9(l.1X&&l.R)g.R(l.R);9(l.1X&&(l.Q&&l.Q!="3x"))g.Q(l.Q);E p=l.5h&&!f.7v();9(p){E q=0,2C=0;1A(E i=0;i<j.W;i++){E r=$(j[i]),e=r[0],w=r.7w(),h=r.7x();9(!w)w=e.7y;9(!h)h=e.7z;q=w>q?w:q;2C=h>2C?h:2C}9(q>0&&2C>0)f.X({R:q+"1k",Q:2C+"1k"})}9(l.41)f.49(A(){M.1R++},A(){M.1R--});9(5i(l)===T)J T;9(!l.2D){E s=$.L.K.1a[l.1v];9($.1Y(s))s(f,g,l);S 9(l.1v!="4a"&&!l.2D){1t("5j 5k: "+l.1v,"; 3l 3m");J T}}E t=T;k.3y=k.3y||0;g.1j(A(){E a=$(M);M.17=l.1X&&l.Q?l.Q:a.Q();M.18=l.1X&&l.R?l.R:a.R();9(a.7A("4b")){E b=$.2k.3k&&(M.18==28&&(M.17==30&&!M.4c));E c=$.2k.7B&&(M.18==42&&(M.17==19&&!M.4c));E d=M.17==0&&(M.18==0&&!M.4c);9(b||(c||d))9(o.s&&(l.5l&&++k.3y<7C)){1t(k.3y," - 4b 3q 1l 7D, 7E 3l: ",M.24,M.18,M.17);2Q(A(){$(o.s,o.c).K(k)},l.5m);t=U;J T}S 1t("7F 1l 7G 7H 4G 7I: "+M.24,M.18,M.17)}J U});9(t)J T;l.P=l.P||{};l.Z=l.Z||{};l.V=l.V||{};g.1l(":2U("+n+")").X(l.P);9(l.1K)$(g[n]).X(l.1K);9(l.1m){l.1m=1h(l.1m);9(l.1p.3Z==58)l.1p=$.1v.7J[l.1p]||1h(l.1p);9(!l.3z)l.1p=l.1p/2;7K(l.1m-l.1p<5n)l.1m+=l.1p}9(l.1I)l.2n=l.2o=l.1I;9(!l.2E)l.2E=l.1p;9(!l.1Z)l.1Z=l.1p;l.2p=j.W;l.1n=l.4d=n;9(l.1J){l.1e=l.1n;9(++l.1r==j.W)l.1r=0;l.1e=l.2d[l.1r]}S l.1e=l.1B>=j.W-1?0:l.1B+1;E u=g[n];9(l.11.W)l.11[0].3A(u,[u,u,l,U]);9(l.1o.W>1)l.1o[1].3A(u,[u,u,l,U]);9(l.1g)$(l.1g).4e(A(){J 2A(l,l.2b?-1:1)});9(l.2V)$(l.2V).4e(A(){J 2A(l,l.2b?1:-1)});9(l.1M)5o(j,l);5p(l,j);J l}A 5f(a){a.1C={11:[],1o:[]};a.1C.P=$.1F({},a.P);a.1C.1L=$.1F({},a.1L);a.1C.Z=$.1F({},a.Z);a.1C.V=$.1F({},a.V);$.1j(a.11,A(){a.1C.11.Y(M)});$.1j(a.1o,A(){a.1C.1o.Y(M)})}A 5i(a){E b=$.L.K.1a;9(a.1v.1q(",")>0){a.2D=U;a.1D=a.1v.5q(/\\s*/g,"").7L(",");1A(E i=0;i<a.1D.W;i++){E c=a.1D[i];E d=b[c];9(!d||(!b.5r(c)||!$.1Y(d))){1t("7M 5j 5k: ",c);a.1D.5s(i,1);i--}}9(!a.1D.W){1t("7N 7O 1a 7P; 3l 3m.");J T}}S 9(a.1v=="7Q"){a.2D=U;a.1D=[];1A(p 2N b){E d=b[p];9(b.5r(p)&&$.1Y(d))a.1D.Y(p)}}9(a.2D&&a.5t){E e=12.5u(12.1J()*20)+30;1A(E i=0;i<e;i++){E f=12.5u(12.1J()*a.1D.W);a.1D.Y(a.1D.5s(f,1)[0])}1t("7R 1v 7S: ",a.1D)}J U}A 5p(d,e){d.7T=A(a,b){E c=$(a),s=c[0];9(!d.46)d.45++;e[b?"3v":"Y"](s);9(d.1G)d.1G[b?"3v":"Y"](s);d.2p=e.W;c.X("3w","5g");c[b?"7U":"5v"](d.$2c);9(b){d.1n++;d.1e++}9(!$.2j.1f&&(d.2S&&!d.47))48(c);9(d.1X&&d.R)c.R(d.R);9(d.1X&&(d.Q&&d.Q!="3x"))$3Y.Q(d.Q);s.17=d.1X&&d.Q?d.Q:c.Q();s.18=d.1X&&d.R?d.R:c.R();c.X(d.P);9(d.1M)$.L.K.4f(e.W-1,s,$(d.1M),e,d);9($.1Y(d.5w))d.5w(c);S c.1W()}}$.L.K.5x=A(a,b){b=b||a.1v;a.11=[];a.1o=[];a.P=$.1F({},a.1C.P);a.1L=$.1F({},a.1C.1L);a.Z=$.1F({},a.1C.Z);a.V=$.1F({},a.1C.V);a.2W=1d;$.1j(a.1C.11,A(){a.11.Y(M)});$.1j(a.1C.1o,A(){a.1o.Y(M)});E c=$.L.K.1a[b];9($.1Y(c))c(a.$2c,$(a.1Q),a)};A 2a(a,b,c,d){9(c&&(b.2T&&b.5y)){$(a).2P(U,U);b.2T=T}9(b.2T)J;E p=b.$2c[0],1E=a[b.1n],1g=a[b.1e];9(p.2m!=b.3u||p.1i===0&&!c)J;9(!c&&(!p.1R&&(b.44&&--b.45<=0||b.3B&&(!b.1J&&b.1e<b.1n)))){9(b.4g)b.4g(b);J}9(c||!p.1R){E e=b.1v;1E.17=1E.17||$(1E).Q();1E.18=1E.18||$(1E).R();1g.17=1g.17||$(1g).Q();1g.18=1g.18||$(1g).R();9(b.2D){9(b.3C==26||++b.3C>=b.1D.W)b.3C=0;e=b.1D[b.3C];b.7V=e}9(b.3r){e=b.3r;b.3r=1d}$.L.K.5x(b,e);9(b.11.W)$.1j(b.11,A(i,o){9(p.2m!=b.3u)J;o.3A(1g,[1E,1g,b,d])});E f=A(){$.1j(b.1o,A(i,o){9(p.2m!=b.3u)J;o.3A(1g,[1E,1g,b,d])})};9(b.1e!=b.1n){b.2T=1;9(b.2W)b.2W(1E,1g,b,f,d);S 9($.1Y($.L.K[b.1v]))$.L.K[b.1v](1E,1g,b,f);S $.L.K.4a(1E,1g,b,f,c&&b.5z)}b.4d=b.1n;9(b.1J){b.1n=b.1e;9(++b.1r==a.W)b.1r=0;b.1e=b.2d[b.1r]}S{E g=b.1e+1==a.W;b.1e=g?0:b.1e+1;b.1n=g?a.W-1:b.1e-1}9(b.1M)$.L.K.4h(b.1M,b.1n)}E h=0;9(b.1m&&!b.2z)h=5A(1E,1g,b,d);S 9(b.2z&&p.1R)h=10;9(h>0)p.1i=2Q(A(){2a(a,b,0,!b.2b)},h)}$.L.K.4h=A(a,b){$(a).2X("a").4i("5B").3s("a:2U("+b+")").2q("5B")};A 5A(a,b,c,d){9(c.4j){E t=c.4j(a,b,c,d);9(t!==T)J t}J c.1m}$.L.K.1g=A(a){2A(a,a.2b?-1:1)};$.L.K.2V=A(a){2A(a,a.2b?1:-1)};A 2A(a,b){E c=a.1Q;E p=a.$2c[0],1m=p.1i;9(1m){27(1m);p.1i=0}9(a.1J&&b<0){a.1r--;9(--a.1r==-2)a.1r=c.W-2;S 9(a.1r==-1)a.1r=c.W-1;a.1e=a.2d[a.1r]}S 9(a.1J){9(++a.1r==c.W)a.1r=0;a.1e=a.2d[a.1r]}S{a.1e=a.1n+b;9(a.1e<0){9(a.3B)J T;a.1e=c.W-1}S 9(a.1e>=c.W){9(a.3B)J T;a.1e=0}}9($.1Y(a.4k))a.4k(b>0,a.1e,c[a.1e]);2a(c,a,1,b>=0);J T}A 5o(a,b){E c=$(b.1M);$.1j(a,A(i,o){$.L.K.4f(i,o,c,a,b)});$.L.K.4h(b.1M,b.1B)}$.L.K.4f=A(i,b,c,d,e){E a=$.1Y(e.4l)?e.4l(i,b):\'<a 1y="#">\'+(i+1)+"</a>";9(!a)J;E f=$(a);9(f.3D("7W").W==0){E g=[];9(c.W>1){c.1j(A(){E a=f.5C(U);$(M).5D(a);g.Y(a)});f=$(g)}S f.5v(c)}f.7X(e.5E,A(){e.1e=i;E p=e.$2c[0],1m=p.1i;9(1m){27(1m);p.1i=0}9($.1Y(e.4m))e.4m(e.1e,d[e.1e]);2a(d,e,1,e.1n<i);J T});9(e.5F)f.49(A(){e.$2c[0].1R++},A(){e.$2c[0].1R--})};$.L.K.5G=A(a,b){E d,l=a.4d,c=a.1n;9(b)d=c>l?c-l:a.2p-l;S d=c<l?l-c:l+a.2p-c;J d};A 48(b){A 3E(s){s=1h(s).7Y(16);J s.W<2?"0"+s:s}A 5H(e){1A(;e&&e.7Z.80()!="4K";e=e.81){E v=$.X(e,"5I-5J");9(v.1q("82")>=0){E a=v.5K(/\\d+/g);J"#"+3E(a[0])+3E(a[1])+3E(a[2])}9(v&&v!="83")J v}J"#84"}b.1j(A(){$(M).X("5I-5J",5H(M))})}$.L.K.1c=A(a,b,c,w,h,d){$(c.1Q).1l(a).1W();c.P.1f=1;c.P.2e="2F";9(w!==T&&b.18>0)c.P.R=b.18;9(h!==T&&b.17>0)c.P.Q=b.17;c.1L=c.1L||{};c.1L.2e="4n";$(a).X("5L",c.2p+(d===U?1:0));$(b).X("5L",c.2p+(d===U?0:1))};$.L.K.4a=A(a,b,c,d,e){E f=$(a),$n=$(b);E g=c.2E,1Z=c.1Z,2n=c.2n,2o=c.2o;$n.X(c.P);9(e){9(5c e=="85")g=1Z=e;S g=1Z=1;2n=2o=1d}E h=A(){$n.2r(c.Z,g,2n,d)};f.2r(c.V,1Z,2o,A(){9(c.1L)f.X(c.1L);9(!c.3z)h()});9(c.3z)h()};$.L.K.1a={5M:A(d,e,f){e.1l(":2U("+f.1n+")").X("1f",0);f.11.Y(A(a,b,c){$.L.K.1c(a,b,c);c.P.1f=0});f.Z={1f:1};f.V={1f:0};f.P={O:0,N:0}}};$.L.K.86=A(){J x};$.L.K.3t={1v:"5M",1m:87,4j:1d,2z:0,1p:88,2E:1d,1Z:1d,1g:1d,2V:1d,4k:1d,1M:1d,4m:1d,5E:"4e",4l:1d,11:1d,1o:1d,4g:1d,1I:1d,2n:1d,2o:1d,2Y:1d,Z:1d,V:1d,P:1d,1L:1d,2W:1d,Q:"3x",1B:0,3z:1,1J:0,1X:0,5h:1,41:0,5F:0,44:0,46:0,2R:0,3X:1d,2S:!$.2j.1f,3B:0,5z:0,5t:1,2b:0,5y:U,5l:U,5m:5n}})(1b);(A($){$.L.K.1a.89=A(a,b,c){a.X("1w","1x");c.11.Y($.L.K.1c);E h=a.Q();c.P={O:h,N:0};c.1K={O:0};c.Z={O:0};c.V={O:-h}};$.L.K.1a.8a=A(a,b,c){a.X("1w","1x");c.11.Y($.L.K.1c);E h=a.Q();c.1K={O:0};c.P={O:-h,N:0};c.Z={O:0};c.V={O:h}};$.L.K.1a.8b=A(a,b,c){a.X("1w","1x");c.11.Y($.L.K.1c);E w=a.R();c.1K={N:0};c.P={N:w,O:0};c.Z={N:0};c.V={N:0-w}};$.L.K.1a.8c=A(a,b,c){a.X("1w","1x");c.11.Y($.L.K.1c);E w=a.R();c.1K={N:0};c.P={N:-w,O:0};c.Z={N:0};c.V={N:w}};$.L.K.1a.8d=A(e,f,g){e.X("1w","1x").R();g.11.Y(A(a,b,c,d){$.L.K.1c(a,b,c);c.P.N=d?b.18-1:1-b.18;c.V.N=d?-a.18:a.18});g.1K={N:0};g.P={O:0};g.Z={N:0};g.V={O:0}};$.L.K.1a.8e=A(e,f,g){e.X("1w","1x");g.11.Y(A(a,b,c,d){$.L.K.1c(a,b,c);c.P.O=d?1-b.17:b.17-1;c.V.O=d?a.17:-a.17});g.1K={O:0};g.P={N:0};g.Z={O:0};g.V={N:0}};$.L.K.1a.8f=A(d,e,f){f.11.Y(A(a,b,c){$(c.1Q).1l(a).1W();$.L.K.1c(a,b,c,T,U);c.Z.R=b.18});f.P={N:0,O:0,R:0};f.Z={R:"2B"};f.V={R:0}};$.L.K.1a.8g=A(d,e,f){f.11.Y(A(a,b,c){$(c.1Q).1l(a).1W();$.L.K.1c(a,b,c,U,T);c.Z.Q=b.17});f.P={N:0,O:0,Q:0};f.Z={Q:"2B"};f.V={Q:0}};$.L.K.1a.2Y=A(j,l,m){E w=j.X("1w","4o").R();l.X({N:0,O:0});m.11.Y(A(a,b,c){$.L.K.1c(a,b,c,U,U,U)});m.1p=m.1p/2;m.1J=0;m.2Y=m.2Y||{N:-w,O:15};m.1G=[];1A(E i=0;i<l.W;i++)m.1G.Y(l[i]);1A(E i=0;i<m.1n;i++)m.1G.Y(m.1G.5N());m.2W=A(b,c,d,e,f){E g=f?$(b):$(c);$(c).X(d.P);E h=d.2p;g.2r(d.2Y,d.2E,d.2n,A(){E a=$.L.K.5G(d,f);1A(E k=0;k<a;k++)f?d.1G.Y(d.1G.5N()):d.1G.3v(d.1G.8h());9(f)1A(E i=0,4p=d.1G.W;i<4p;i++)$(d.1G[i]).X("z-2i",4p-i+h);S{E z=$(b).X("z-2i");g.X("z-2i",1h(z)+1+h)}g.2r({N:0,O:0},d.1Z,d.2o,A(){$(f?M:b).1W();9(e)e()})})};m.P={2e:"2F",1f:1,O:0,N:0}};$.L.K.1a.8i=A(d,e,f){f.11.Y(A(a,b,c){$.L.K.1c(a,b,c,U,T);c.P.O=b.17;c.Z.Q=b.17});f.1K={O:0};f.P={N:0,Q:0};f.Z={O:0};f.V={Q:0}};$.L.K.1a.8j=A(d,e,f){f.11.Y(A(a,b,c){$.L.K.1c(a,b,c,U,T);c.Z.Q=b.17;c.V.O=a.17});f.1K={O:0};f.P={N:0,O:0,Q:0};f.V={Q:0}};$.L.K.1a.8k=A(d,e,f){f.11.Y(A(a,b,c){$.L.K.1c(a,b,c,T,U);c.P.N=b.18;c.Z.R=b.18});f.P={O:0,R:0};f.Z={N:0};f.V={R:0}};$.L.K.1a.8l=A(d,e,f){f.11.Y(A(a,b,c){$.L.K.1c(a,b,c,T,U);c.Z.R=b.18;c.V.N=a.18});f.P={O:0,N:0,R:0};f.Z={N:0};f.V={R:0}};$.L.K.1a.5O=A(d,e,f){f.11.Y(A(a,b,c){$.L.K.1c(a,b,c,T,T,U);c.P.O=b.17/2;c.P.N=b.18/2;c.Z={O:0,N:0,R:b.18,Q:b.17};c.V={R:0,Q:0,O:a.17/2,N:a.18/2}});f.1K={O:0,N:0};f.P={R:0,Q:0}};$.L.K.1a.8m=A(d,e,f){f.11.Y(A(a,b,c){$.L.K.1c(a,b,c,T,T);c.P.N=b.18/2;c.P.O=b.17/2;c.Z={O:0,N:0,R:b.18,Q:b.17}});f.P={R:0,Q:0};f.V={1f:0}};$.L.K.1a.8n=A(d,e,f){E w=d.X("1w","1x").R();f.11.Y(A(a,b,c){$.L.K.1c(a,b,c);c.Z.R=b.18;c.V.N=a.18});f.P={N:w,O:0};f.Z={N:0};f.V={N:w}};$.L.K.1a.8o=A(d,e,f){E h=d.X("1w","1x").Q();f.11.Y(A(a,b,c){$.L.K.1c(a,b,c);c.Z.Q=b.17;c.V.O=a.17});f.P={O:h,N:0};f.Z={O:0};f.V={O:h}};$.L.K.1a.8p=A(d,e,f){E h=d.X("1w","1x").Q();E w=d.R();f.11.Y(A(a,b,c){$.L.K.1c(a,b,c);c.Z.Q=b.17;c.V.O=a.17});f.P={O:h,N:w};f.Z={O:0,N:0};f.V={O:h,N:w}};$.L.K.1a.8q=A(d,e,f){f.11.Y(A(a,b,c){$.L.K.1c(a,b,c,T,U);c.P.N=M.18/2;c.Z={N:0,R:M.18};c.V={N:0}});f.P={R:0,O:0}};$.L.K.1a.8r=A(d,e,f){f.11.Y(A(a,b,c){$.L.K.1c(a,b,c,U,T);c.P.O=M.17/2;c.Z={O:0,Q:M.17};c.V={O:0}});f.P={Q:0,N:0}};$.L.K.1a.8s=A(d,e,f){f.11.Y(A(a,b,c){$.L.K.1c(a,b,c,T,U,U);c.P.N=b.18/2;c.Z={N:0,R:M.18};c.V={N:a.18/2,R:0}});f.P={O:0,R:0}};$.L.K.1a.8t=A(d,e,f){f.11.Y(A(a,b,c){$.L.K.1c(a,b,c,U,T,U);c.P.O=b.17/2;c.Z={O:0,Q:b.17};c.V={O:a.17/2,Q:0}});f.P={N:0,Q:0}};$.L.K.1a.8u=A(e,f,g){E d=g.5P||"N";E w=e.X("1w","1x").R();E h=e.Q();g.11.Y(A(a,b,c){$.L.K.1c(a,b,c);9(d=="3F")c.P.N=-w;S 9(d=="5Q")c.P.O=h;S 9(d=="5R")c.P.O=-h;S c.P.N=w});g.Z={N:0,O:0};g.V={1f:1};g.P={O:0,N:0}};$.L.K.1a.8v=A(e,f,g){E d=g.5P||"N";E w=e.X("1w","1x").R();E h=e.Q();g.11.Y(A(a,b,c){$.L.K.1c(a,b,c,U,U,U);9(d=="3F")c.V.N=w;S 9(d=="5Q")c.V.O=-h;S 9(d=="5R")c.V.O=h;S c.V.N=-w});g.Z={N:0,O:0};g.V={1f:1};g.P={O:0,N:0}};$.L.K.1a.8w=A(d,e,f){E w=d.X("1w","4o").R();E h=d.Q();f.11.Y(A(a,b,c){$.L.K.1c(a,b,c,U,U,U);9(!c.V.N&&!c.V.O)c.V={N:w*2,O:-h/2,1f:0};S c.V.1f=0});f.P={N:0,O:0};f.Z={N:0}};$.L.K.1a.8x=A(n,o,p){E w=n.X("1w","1x").R();E h=n.Q();p.P=p.P||{};E q;9(p.1S)9(/8y/.2Z(p.1S))q="2s(1H 1H "+h+"1k 1H)";S 9(/8z/.2Z(p.1S))q="2s(1H "+w+"1k "+h+"1k "+w+"1k)";S 9(/8A/.2Z(p.1S))q="2s(1H "+w+"1k 1H 1H)";S 9(/8B/.2Z(p.1S))q="2s("+h+"1k "+w+"1k "+h+"1k 1H)";S 9(/5O/.2Z(p.1S)){E t=1h(h/2);E l=1h(w/2);q="2s("+t+"1k "+l+"1k "+t+"1k "+l+"1k)"}p.P.1S=p.P.1S||(q||"2s(1H 1H 1H 1H)");E d=p.P.1S.5K(/(\\d+)/g);E t=1h(d[0]),r=1h(d[1]),b=1h(d[2]),l=1h(d[3]);p.11.Y(A(g,i,j){9(g==i)J;E k=$(g),$1g=$(i);$.L.K.1c(g,i,j,U,U,T);j.1L.2e="2F";E m=1,2G=1h(j.2E/13)-1;(A f(){E a=t?t-1h(m*(t/2G)):0;E c=l?l-1h(m*(l/2G)):0;E d=b<h?b+1h(m*((h-b)/2G||1)):h;E e=r<w?r+1h(m*((w-r)/2G||1)):w;$1g.X({1S:"2s("+a+"1k "+e+"1k "+d+"1k "+c+"1k)"});m++<=2G?2Q(f,13):k.X("2e","4n")})()});p.P={2e:"2F",1f:1,O:0,N:0};p.Z={N:0};p.V={N:0}}})(1b);(A($){$.L.3G=A(d){E e=$.L.3G,c=e.c,$2H=$([\'<2u 2L="\',c.5S,\'"> &#8C;</2u>\'].2l("")),3H=A(){E a=$(M),31=4q(a);27(31.4r);a.5T().8D().3I()},4s=A(){E a=$(M),31=4q(a),o=e.2f;27(31.4r);31.4r=2Q(A(){o.4t=$.8E(a[0],o.$32)>-1;a.3I();9(o.$32.W&&a.3D(["2g.",o.2I].2l("")).W<1)3H.1P(o.$32)},o.2R)},4q=A(a){E b=a.3D(["1s.",c.4u,":5U"].2l(""))[0];e.2f=e.o[b.5V];J b},5W=A(a){a.2q(c.5X).5D($2H.5C())};J M.1j(A(){E s=M.5V=e.o.W;E o=$.1F({},e.3t,d);o.$32=$("2g."+o.4v,M).8F(0,o.5Y).1j(A(){$(M).2q([o.2I,c.4w].2l(" ")).3s("2g:5Z(1s)").4i(o.4v)});e.o[s]=e.2f=o;$("2g:5Z(1s)",M)[$.L.60&&!o.61?"60":"49"](3H,4s).1j(A(){9(o.4x)5W($(">a:5U-8G",M))}).1l("."+c.4w).3I();E b=$("a",M);b.1j(A(i){E a=b.2U(i).3D("2g");b.2U(i).62(A(){3H.1P(a)}).63(A(){4s.1P(a)})});o.64.1P(M)}).1j(A(){E a=[c.4u];9(e.2f.3J&&!($.2k.3k&&$.2k.66<7))a.Y(c.3K);$(M).2q(a.2l(" "))})};E f=$.L.3G;f.o=[];f.2f={};f.4y=A(){E o=f.2f;9($.2k.3k&&($.2k.66>6&&(o.3J&&o.3L.1f!=26)))M.8H(f.c.3K+"-67")};f.c={4w:"2t-8I",4u:"2t-8J-8K",5X:"2t-68-1s",5S:"2t-8L-8M",3K:"2t-8N"};f.3t={2I:"8O",4v:"8P",5Y:1,2R:8Q,3L:{1f:"2B"},1p:"8R",4x:U,3J:U,61:T,64:A(){},69:A(){},6a:A(){},6b:A(){}};$.L.1F({3I:A(){E o=f.2f,1l=o.4t===U?o.$32:"";o.4t=T;E a=$(["2g.",o.2I].2l(""),M).8S(M).1l(1l).4i(o.2I).2X(">1s").1W().X("6c","1x");o.6b.1P(a);J M},5T:A(){E o=f.2f,8T=f.c.3K+"-67",$1s=M.2q(o.2I).2X(">1s:1x").X("6c","4o");f.4y.1P($1s);o.69.1P($1s);$1s.2r(o.3L,o.1p,A(){f.4y.1P($1s);o.6a.1P($1s)});J M}})})(1b);1b("1s.6d").3G({2R:8U,3L:{1f:"2B",Q:"2B"},1p:"6e",4x:U,3J:T});1b("1s.6d > 2g > a.2t-68-1s").8V("2g").2q("2t-1s");E $33=1b("#34 #3Y");9($33.W){E 6f={1m:0,1p:8W,47:U,2V:"#34 a#N-2H",1g:"#34 a#3F-2H",1M:"2M#8X"};$33.X("8Y","4n");$33.K(6f);E $4z=$33.2X(".3q");9($4z.W===1){$4z.X("2e","2F");1b("#34 a#N-2H, #34 a#3F-2H").1W()}}E $4A=1b("#6g-8Z .6g-90");9($4A.W)$4A.1j(A(a,b){9((a+1)%4==0)1b(b).2q("91").1o("<2M 2L=\'92\'></2M>")});A 6h(){E a=1b("#1T-93"),$3M=a.2X("94#3M"),4B=$3M.35();$3M.62(A(){9(1b(M).35()===4B)1b(M).35("")}).63(A(){9(1b(M).35()==="")1b(M).35(4B)})}6h();1b(A(){E c=1b(".95-96");c.97(A(e){4C(1b(M),e);1b(M).3n(".4D").X({2e:"2F",1f:"0",O:y,N:x+10}).2P(U,U).2r({1f:1},98)}).99(A(e){4C(1b(M),e);1b(M).3n(".4D").X({O:y+10,N:x+20})}).9a(A(){1b(M).3n(".4D").2P(U,U).2r({1f:"1W"},"6e")});A 4C(a,b){x=b.9b-a.6i().N;y=b.9c-a.6i().O}});A 6j(a){E b=1V.4H("9d");E c=b.3O("4b");1A(E i=0;i<c.W;i++)c[i].24=c[i].24.5q(/\\/9e\\-c/g,"/s"+a+"-c")}6j(9f);',62,574,'|||||||||if|||||||||||||||||||||||||||function||||var|||||return|cycle|fn|this|left|top|cssBefore|height|width|else|false|true|animOut|length|css|push|animIn||before|Math|||||cycleH|cycleW||transitions|jQuery|commonReset|null|nextSlide|opacity|next|parseInt|cycleTimeout|each|px|not|timeout|currSlide|after|speed|indexOf|randomIndex|ul|log|max|fx|overflow|hidden|href|posts|for|startingSlide|original|fxs|curr|extend|els|0px|easing|random|cssFirst|cssAfter|pager|script|PI|call|elements|cyclePause|clip|search|results|document|hide|fit|isFunction|speedOut||maksimal|label||src|pow|undefined|clearTimeout|||go|rev|cont|randomMap|display|op|li|page|index|support|browser|join|cycleStop|easeIn|easeOut|slideCount|addClass|animate|rect|sf|span|onclick|substring|PageNo|70158|continuous|advance|show|maxh|multiFx|speedIn|block|count|arrow|hoverClass|nomerkiri|mulai|class|div|in|sin|stop|setTimeout|delay|cleartype|busy|eq|prev|fxFn|find|shuffle|test||menu|path|featured_content|featured|val|num|akhir|previous|redirectpage|redirectlabel|updated|feeds|summary|alt|json|callback|jsonstart|sqrt|5625|msie|slideshow|terminating|children|opts|data|slide|oneTimeFx|filter|defaults|stopCount|unshift|position|auto|requeueAttempts|sync|apply|nowrap|lastFx|parents|hex|right|superfish|over|hideSuperfishUl|dropShadows|shadowClass|animation|searchinput|hitungtotaldata|getElementsByTagName|finddatepost|post|abs|asin|easeOutBounce|window|console|found|slideExpr|slides|constructor|case|pause||removeFilter|autostop|countdown|autostopCount|cleartypeNoBg|clearTypeFix|hover|custom|img|complete|lastSlide|click|createPagerAnchor|end|updateActivePagerLink|removeClass|timeoutFn|prevNextClick|pagerAnchorBuilder|pagerClick|none|visible|len|getMenu|sfTimer|out|retainPath|menuClass|pathClass|bcClass|autoArrows|IE7fix|et_featured_single_slide|footer_widget|searchvalue|move_thumb|boutique_description_border|location|loophalaman|of|getElementById|innerHTML|feed|html|write|x3c|head|createElement|type|text|javascript|setAttribute|start|appendChild|published|swing|def|easeOutQuad|cos|525|easeInBounce|selector|isReady|DOM|ready|handleArguments|buildOptions|String|resume|options|can|typeof|style|metadata|saveOriginalOpts|absolute|containerResize|supportMultiTransitions|unknown|transition|requeueOnImageNotLoaded|requeueTimeout|250|buildPager|exposeAddSlide|replace|hasOwnProperty|splice|randomizeEffects|floor|appendTo|onAddSlide|resetState|manualTrump|fastOnEvent|getTimeout|activeSlide|clone|append|pagerEvent|pauseOnPagerHover|hopsFromLast|getBg|background|color|match|zIndex|fade|shift|zoom|direction|up|down|arrowClass|showSuperfishUl|first|serial|addArrow|anchorClass|pathLevels|has|hoverIntent|disableHI|focus|blur|onInit||version|off|with|onBeforeShow|onShow|onHide|visibility|nav|fast|et_featured_options|footer|et_search_bar|offset|resizeThumb|pages|Page|current|getElementsByName|pageArea|blog|pagenavi|openSearch|totalResults|entry|encodeURIComponent|jswing|easeInQuad|easeInOutQuad|easeInCubic|easeOutCubic|easeInOutCubic|easeInQuart|easeOutQuart|easeInOutQuart|easeInQuint|easeOutQuint|easeInOutQuint|easeInSine|easeOutSine|easeInOutSine|easeInExpo|easeOutExpo|easeInOutExpo|easeInCirc|easeOutCirc|easeInOutCirc|easeInElastic|easeOutElastic|easeInOutElastic|44999999999999996|easeInBack|easeOutBack|easeInOutBack|36363636363636365|7272727272727273|5454545454545454|9090909090909091|8181818181818182|9375|9545454545454546|984375||easeInOutBounce|Array|prototype|arguments|context|queuing|zero|by|get|too|few|switch|removeData|default|Number|invalid|string|try|removeAttribute|catch|smother|meta|static|relative|sort|innerHeight|outerWidth|outerHeight|offsetWidth|offsetHeight|is|opera|100|loaded|requeuing|could|determine|size|image|speeds|while|split|discarding|No|valid|named|all|randomized|sequence|addSlide|prependTo|currFx|body|bind|toString|nodeName|toLowerCase|parentNode|rgb|transparent|ffffff|number|ver|4E3|1E3|scrollUp|scrollDown|scrollLeft|scrollRight|scrollHorz|scrollVert|slideX|slideY|pop|turnUp|turnDown|turnLeft|turnRight|fadeZoom|blindX|blindY|blindZ|growX|growY|curtainX|curtainY|cover|uncover|toss|wipe|l2r|r2l|t2b|b2t|187|siblings|inArray|slice|child|toggleClass|breadcrumb|js|enabled|sub|indicator|shadow|sfHover|overideThisToUse|800|normal|add|sh|300|parent|500|controllers|backgroundImage|widgets|widget|last|clear|form|input|main|item|mouseenter|400|mousemove|mouseleave|pageX|pageY|popular|s72|137'.split('|'),0,{}))
+//]]></script>
+</body>
+</html>
